@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # UCI Bank – Propensión a suscribir
 
 ## 1. Problema de negocio
@@ -8,7 +10,12 @@ Nuestro producto asigna a cada cliente un score de propensión de 0 a 100 y gene
 ## Nota: Fuente de datos
 
 Se usará bank-additional-full.csv del UCI Machine Learning Repository (41,188 llamadas, 20 variables + y), en lugar de bank-full.csv (45,211 registros) que indican las instrucciones. Según los autores del dataset, agregar los 5 indicadores económicos (emp.var.rate, cons.price.idx, cons.conf.idx, euribor3m, nr.employed) mejora sustancialmente la predicción, incluso sin usar duration.
+Se excluirá la variable `duration` del modelo productivo para evitar fuga de información (_data leakage_), ya que solo se conoce después de realizar la llamada.
 Esta decisión tiene dos consecuencias: el archivo no incluye balance, por lo que la regla DQ “balance sin negativos anómalos” no aplica; y pdays usa 999 para “no contactado antes”, que transformaremos a -1 según la regla del reto. No es posible combinar ambos archivos porque no comparten una columna identificadora.
+
+### Pendiente
+
+Confirmar qué versión se utilizará según los requisitos del proyecto.
 
 ## 3. Arquitectura
 
@@ -35,3 +42,7 @@ Esta decisión tiene dos consecuencias: el archivo no incluye balance, por lo qu
 ## 9. Equipo y roles
 
 ## 10. Próximos pasos
+
+=======
+
+> > > > > > > 0d16fb5fd8f4e222a7588901a171f2623485d00c
