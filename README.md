@@ -5,7 +5,7 @@
 El banco realiza una campaña telefónica para promocionar depósitos a plazo. En campañas anteriores, solo ~11% de las llamadas terminaron en suscripción, lo que significa que la mayoría del esfuerzo se gasta en clientes que dirán que no.
 Nuestro producto asigna a cada cliente un score de propensión de 0 a 100 y genera una lista de llamadas con el 20% de clientes con mayor score, para que el banco llame primero a quienes tienen más probabilidad de suscribir.
 
-## 2. Fuente de datos
+## Nota: Fuente de datos
 
 Se usará bank-additional-full.csv del UCI Machine Learning Repository (41,188 llamadas, 20 variables + y), en lugar de bank-full.csv (45,211 registros) que indican las instrucciones. Según los autores del dataset, agregar los 5 indicadores económicos (emp.var.rate, cons.price.idx, cons.conf.idx, euribor3m, nr.employed) mejora sustancialmente la predicción, incluso sin usar duration.
 Esta decisión tiene dos consecuencias: el archivo no incluye balance, por lo que la regla DQ “balance sin negativos anómalos” no aplica; y pdays usa 999 para “no contactado antes”, que transformaremos a -1 según la regla del reto. No es posible combinar ambos archivos porque no comparten una columna identificadora.
