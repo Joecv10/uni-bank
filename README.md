@@ -1,7 +1,7 @@
 ## Nota: Selección del dataset
 
 ### Dataset seleccionado
-Se utilizará inicialmente `bank-full.csv` del repositorio UCI Bank Marketing, que contiene **45.211 registros y 17 columnas**.
+Se debe determianr que fuente usar si `bank-full.csv` del repositorio UCI Bank Marketing, que contiene **45.211 registros y 17 columnas** o la adicional.
 
 ### Diferencia identificada
 El enunciado menciona las variables económicas `emp.var.rate`, `cons.price.idx` y `euribor3m`, que pertenecen a `bank-additional-full.csv`, una versión diferente que contiene **41.188 registros y 21 columnas** (incluyendo el target).
