@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 # UCI Bank – Propensión a suscribir
 
 ## 1. Problema de negocio
@@ -44,5 +42,3 @@ Confirmar qué versión se utilizará según los requisitos del proyecto.
 ## 10. Próximos pasos
 
 =======
-
-> > > > > > > 0d16fb5fd8f4e222a7588901a171f2623485d00c
