@@ -1,0 +1,88 @@
+{
+  "itemId" : "_8fFtkNiEEfGYDKHwOCnAyQ",
+  "contextList" : [ {
+    "contextName" : "QA",
+    "repoId" : "_-WKJcNhvEfGYDKHwOCnAyQ",
+    "parameterList" : [ {
+      "id" : "_-XBsM9hvEfGYDKHwOCnAyQ",
+      "name" : "DB_HOST"
+    }, {
+      "id" : "_-XBsMthvEfGYDKHwOCnAyQ",
+      "name" : "DB_NAME"
+    }, {
+      "id" : "_-XBsNthvEfGYDKHwOCnAyQ",
+      "name" : "DB_PASSWORD"
+    }, {
+      "id" : "_-XBsNNhvEfGYDKHwOCnAyQ",
+      "name" : "DB_PORT"
+    }, {
+      "id" : "_-XBsNdhvEfGYDKHwOCnAyQ",
+      "name" : "DB_USER"
+    }, {
+      "id" : "_-XBsN9hvEfGYDKHwOCnAyQ",
+      "name" : "FILE_UCI_BANK"
+    }, {
+      "id" : "_-XBsONhvEfGYDKHwOCnAyQ",
+      "name" : "LOAD_SOURCE_TAG"
+    }, {
+      "id" : "_-XBsOdhvEfGYDKHwOCnAyQ",
+      "name" : "PIPELINE_NAME"
+    } ]
+  }, {
+    "contextName" : "PROD",
+    "repoId" : "_-WKJcNhvEfGYDKHwOCnAyQ",
+    "parameterList" : [ {
+      "id" : "_-XBsKthvEfGYDKHwOCnAyQ",
+      "name" : "DB_HOST"
+    }, {
+      "id" : "_-XBsKdhvEfGYDKHwOCnAyQ",
+      "name" : "DB_NAME"
+    }, {
+      "id" : "_-XBsLdhvEfGYDKHwOCnAyQ",
+      "name" : "DB_PASSWORD"
+    }, {
+      "id" : "_-XBsK9hvEfGYDKHwOCnAyQ",
+      "name" : "DB_PORT"
+    }, {
+      "id" : "_-XBsLNhvEfGYDKHwOCnAyQ",
+      "name" : "DB_USER"
+    }, {
+      "id" : "_-XBsLthvEfGYDKHwOCnAyQ",
+      "name" : "FILE_UCI_BANK"
+    }, {
+      "id" : "_-XBsL9hvEfGYDKHwOCnAyQ",
+      "name" : "LOAD_SOURCE_TAG"
+    }, {
+      "id" : "_-XBsMNhvEfGYDKHwOCnAyQ",
+      "name" : "PIPELINE_NAME"
+    } ]
+  }, {
+    "contextName" : "DEV",
+    "repoId" : "_-WKJcNhvEfGYDKHwOCnAyQ",
+    "parameterList" : [ {
+      "id" : "_-XBsIdhvEfGYDKHwOCnAyQ",
+      "name" : "DB_HOST"
+    }, {
+      "id" : "_-XBsINhvEfGYDKHwOCnAyQ",
+      "name" : "DB_NAME"
+    }, {
+      "id" : "_-XBsJNhvEfGYDKHwOCnAyQ",
+      "name" : "DB_PASSWORD"
+    }, {
+      "id" : "_-XBsIthvEfGYDKHwOCnAyQ",
+      "name" : "DB_PORT"
+    }, {
+      "id" : "_-XBsI9hvEfGYDKHwOCnAyQ",
+      "name" : "DB_USER"
+    }, {
+      "id" : "_-XBsJdhvEfGYDKHwOCnAyQ",
+      "name" : "FILE_UCI_BANK"
+    }, {
+      "id" : "_-XBsJthvEfGYDKHwOCnAyQ",
+      "name" : "LOAD_SOURCE_TAG"
+    }, {
+      "id" : "_-XBsJ9hvEfGYDKHwOCnAyQ",
+      "name" : "PIPELINE_NAME"
+    } ]
+  } ]
+}
