@@ -58,7 +58,15 @@
     "version" : "Latest",
     "type" : "property"
   }, {
+    "id" : "_wdmUANi4EfGQOsO7K17S2w",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
     "id" : "_hQUJwNhxEfGYDKHwOCnAyQ - metadata_bank_full",
+    "version" : "Latest",
+    "type" : "schema"
+  }, {
+    "id" : "_wdmUANi4EfGQOsO7K17S2w - metadata_bank_full_additional",
     "version" : "Latest",
     "type" : "schema"
   } ]

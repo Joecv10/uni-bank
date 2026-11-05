@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:TalendMetadata="http://www.talend.org/metadata/connection/2010" xmlns:orgomg.cwm.resource.record="http:///orgomg/cwm/resource/record.ecore">
+  <TalendMetadata:DelimitedFileConnection xmi:id="_wd09gNi4EfGQOsO7K17S2w" name="bank_full_additional" id="_wdmUANi4EfGQOsO7K17S2w" dataPackage="_wd09gdi4EfGQOsO7K17S2w" Server="Localhost 127.0.0.1" FilePath="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank-additional/bank-additional/bank-additional-full.csv" Format="WINDOWS" Encoding="UTF-8" FieldSeparatorValue="&quot;;&quot;" RowSeparatorValue="&quot;\n&quot;" UseHeader="true" HeaderValue="1" FirstLineCaption="true" EscapeType="CSV" TextEnclosure="&quot;\&quot;&quot;" CsvOption="true"/>
+  <orgomg.cwm.resource.record:RecordFile xmi:id="_wd09gdi4EfGQOsO7K17S2w" name="default" dataManager="_wd09gNi4EfGQOsO7K17S2w">
+    <ownedElement xsi:type="TalendMetadata:MetadataTable" xmi:id="_wd09gti4EfGQOsO7K17S2w" id="_Nni7INi4EfGQOsO7K17S2w" comment="metadata_bank_full_additional" label="metadata_bank_full_additional">
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5ENi5EfGQOsO7K17S2w" label="age" length="2" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Edi5EfGQOsO7K17S2w" label="job" length="13" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Eti5EfGQOsO7K17S2w" label="marital" length="8" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5E9i5EfGQOsO7K17S2w" label="education" length="19" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5FNi5EfGQOsO7K17S2w" label="Column4" length="7" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Fdi5EfGQOsO7K17S2w" label="housing" length="7" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Fti5EfGQOsO7K17S2w" label="loan" length="7" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5F9i5EfGQOsO7K17S2w" label="contact" length="9" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5GNi5EfGQOsO7K17S2w" label="month" length="3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Gdi5EfGQOsO7K17S2w" label="day_of_week" length="3" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Gti5EfGQOsO7K17S2w" label="duration" length="4" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5G9i5EfGQOsO7K17S2w" label="campaign" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5HNi5EfGQOsO7K17S2w" label="pdays" length="3" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Hdi5EfGQOsO7K17S2w" label="previous" length="1" talendType="id_Integer" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Hti5EfGQOsO7K17S2w" label="poutcome" length="11" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5H9i5EfGQOsO7K17S2w" label="emp_var_rate" length="3" precision="2" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5INi5EfGQOsO7K17S2w" label="cons_price_idx" length="6" precision="4" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Idi5EfGQOsO7K17S2w" label="cons_conf_idx" length="5" precision="2" talendType="id_Double" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5Iti5EfGQOsO7K17S2w" label="euribor3m" length="5" precision="4" talendType="id_Float" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5I9i5EfGQOsO7K17S2w" label="nr_employed" length="-1" talendType="id_Double" pattern="&quot;dd-MM-yyyy&quot;"/>
+      <feature xsi:type="TalendMetadata:MetadataColumn" xmi:id="_oiK5JNi5EfGQOsO7K17S2w" label="y" length="2" talendType="id_String" pattern="&quot;dd-MM-yyyy&quot;"/>
+    </ownedElement>
+  </orgomg.cwm.resource.record:RecordFile>
+</xmi:XMI>
