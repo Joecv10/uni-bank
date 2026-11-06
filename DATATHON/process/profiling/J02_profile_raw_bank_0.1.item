@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
+  <context confirmationNeeded="false" hide="false" name="Default">
+    <contextParameter comment="" name="run_id" prompt="run_id?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="" internalId="_1DNLgNncEfGhHNpLhPftWA"/>
+    <contextParameter comment="" name="cnx_singlestore_g3_jdbcClass" prompt="cnx_singlestore_g3_jdbcClass?" promptNeeded="false" repositoryContextId="_B_QeINnQEfGgkOVoniNXdA" type="id_String" value="org.mariadb.jdbc.Driver" internalId="_1DPAsNncEfGhHNpLhPftWA"/>
+    <contextParameter comment="" name="cnx_singlestore_g3_jdbcUrl" prompt="cnx_singlestore_g3_jdbcUrl?" promptNeeded="false" repositoryContextId="_B_QeINnQEfGgkOVoniNXdA" type="id_String" value="jdbc:mariadb://svc-55cde336-ac25-4fc8-be87-8bb82a160d34-dml.aws-virginia-5.svc.singlestore.com:3306/db_bank_g3_raw" internalId="_1DPAsdncEfGhHNpLhPftWA"/>
+    <contextParameter comment="" name="cnx_singlestore_g3_userId" prompt="cnx_singlestore_g3_userId?" promptNeeded="false" repositoryContextId="_B_QeINnQEfGgkOVoniNXdA" type="id_String" value="admin" internalId="_1DPAstncEfGhHNpLhPftWA"/>
+    <contextParameter comment="" name="cnx_singlestore_g3_password" prompt="cnx_singlestore_g3_password?" promptNeeded="false" repositoryContextId="_B_QeINnQEfGgkOVoniNXdA" type="id_Password" value="enc:system.encryption.key.v1:OYiF1Ttc2tUDSq0tJZJHDjTlYVUlHxZBwFxT+lafGnlgXaV2UCwvysmK4AMu0au54WJwEIs=" internalId="_1DPAs9ncEfGhHNpLhPftWA"/>
+  </context>
+  <parameters>
+    <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_X" value="0" show="false"/>
+    <elementParameter field="TEXT" name="SCREEN_OFFSET_Y" value="0" show="false"/>
+    <elementParameter field="TEXT" name="REPOSITORY_CONNECTION_ID" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_PROPERTY_TYPENAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_DISTRIBUTION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_HADOOP_VERSION" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USERNAME" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_GROUP" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_USE_KEYTAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KT_PRINCIPAL" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_KEY_TAB" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_ENABLE_OO_KERBEROS" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_NAME_NODE_END_POINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_JOB_TRACKER_ENDPOINT" value="" show="false"/>
+    <elementParameter field="TEXT" name="OOZIE_END_POINT" value="" show="false"/>
+    <elementParameter field="CHECK" name="IMPLICITCONTEXT_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STATANDLOG_USE_PROJECT_SETTINGS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="MULTI_THREAD_EXECATION" value="false"/>
+    <elementParameter field="TEXT" name="PARALLELIZE_UNIT_SIZE" value="25000"/>
+    <elementParameter field="CHECK" name="IMPLICIT_TCONTEXTLOAD" value="false"/>
+    <elementParameter field="RADIO" name="FROM_FILE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="RADIO" name="FROM_DATABASE_FLAG_IMPLICIT_CONTEXT" value="false" show="false"/>
+    <elementParameter field="FILE" name="IMPLICIT_TCONTEXTLOAD_FILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FIELDSEPARATOR" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="OVERRIDE_ENCODING_FLAG" value="false" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="OVERRIDE_ENCODING_IN_EXTRA" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="OVERRIDE_ENCODING_IN_EXTRA:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION_IMPLICIT_CONTEXT" value="" show="false"/>
+    <elementParameter field="TEXT" name="URL_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR_IMPLICIT_CONTEXT" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" value="enc:system.encryption.key.v1:Quqf/61wMD06+2tRmlHkvuuOjAzCYdXHoXY7ckrs" show="false"/>
+    <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="LOAD_NEW_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="NOT_LOAD_OLD_VARIABLE" value="Warning" show="false"/>
+    <elementParameter field="CHECK" name="PRINT_OPERATIONS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_ERROR" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_WARNINGS" value="false" show="false"/>
+    <elementParameter field="CHECK" name="DISABLE_INFO" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_STATCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_LOGCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_METERCATCHER_FLAG" value="false"/>
+    <elementParameter field="CHECK" name="ON_CONSOLE_FLAG" value="false" show="false"/>
+    <elementParameter field="CHECK" name="ON_FILES_FLAG" value="false" show="false"/>
+    <elementParameter field="DIRECTORY" name="FILE_PATH" value="&quot;/Applications/TalendStudio-8.0.1/studio/workspace/.metadata&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_STATS" value="&quot;stats_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_LOGS" value="&quot;logs_file.txt&quot;" show="false"/>
+    <elementParameter field="TEXT" name="FILENAME_METTER" value="&quot;meter_file.txt&quot;" show="false"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="ISO-8859-15" show="false"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="ISO-8859-15" show="false"/>
+    <elementParameter field="CHECK" name="ON_DATABASE_FLAG" value="false" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_TYPE" value="JDBCOutput" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="DB_VERSION" value="ORACLE_18" show="false"/>
+    <elementParameter field="TEXT" name="URL" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TABLE" name="DRIVER_JAR" show="false"/>
+    <elementParameter field="TEXT" name="DRIVER_CLASS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="HOST" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PORT" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DATASOURCE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="DBNAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="LOCAL_SERVICE_NAME" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="PROPERTIES" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="SCHEMA_DB" value="&quot;&quot;" show="false"/>
+    <elementParameter field="TEXT" name="USER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="PASSWORD" name="PASS" value="enc:system.encryption.key.v1:La8kDZnjoPQGymtRRCMLYZPhrDCESmdSz0c0Z2p1" show="false"/>
+    <elementParameter field="FILE" name="DBFILE" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_STATS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_LOGS" value="&quot;&quot;" show="false"/>
+    <elementParameter field="DBTABLE" name="TABLE_METER" value="&quot;&quot;" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_RUNTIME_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_ERRORS" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_USER_WARNING" value="true" show="false"/>
+    <elementParameter field="CHECK" name="CATCH_REALTIME_STATS" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_HEADERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="HEADER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADER_IMPORT" value="" show="false"/>
+    <elementParameter field="TEXT" name="HEADERFOOTER_FOOTERID" value="" show="false"/>
+    <elementParameter field="CHECK" name="FOOTER_ENABLED" value="false" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_LIBRARY" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
+    <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
+  </parameters>
+  <node componentName="SingleStoreConnection" componentVersion="2" offsetLabelX="0" offsetLabelY="0" posX="80" posY="40">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBConnection_1" show="false"/>
+    <elementParameter field="TEXT" name="COMPONENT_NAME" value="SingleStoreConnection" show="false"/>
+    <elementParameter field="TECHNICAL" name="TACOKIT_COMPONENT_ID" value="bmV3amRiYyNKREJDI0lucHV0Connection" show="false"/>
+    <elementParameter field="TEXT" name="VERSION" value="2" show="false"/>
+    <elementParameter field="TEXT" name="FAMILY" value="JDBC" show="false"/>
+    <elementParameter field="CHECK" name="START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STARTABLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true" show="false"/>
+    <elementParameter field="TEXT" name="HELP" value="HELP" show="false"/>
+    <elementParameter field="DIRECTORY" name="IREPORT_PATH" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:PROPERTY_TYPE" value="REPOSITORY"/>
+    <elementParameter field="TECHNICAL" name="PROPERTY:REPOSITORY_PROPERTY_TYPE" value="_ClkQMNnQEfGgkOVoniNXdA"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="TEXT" name="LABEL" value="cnx_singlestore_g3"/>
+    <elementParameter field="CHECK" name="configuration.enableDBType" value="false" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dbType" value="JDBC" show="false"/>
+    <elementParameter field="CHECK" name="configuration.setRawUrl" value="true" show="false"/>
+    <elementParameter field="TEXT" name="configuration.jdbcUrl" value="context.cnx_singlestore_g3_jdbcUrl"/>
+    <elementParameter field="TEXT" name="configuration.port" value="&quot;80&quot;" show="false"/>
+    <elementParameter field="TABLE" name="configuration.parameters" show="false"/>
+    <elementParameter field="TABLE" name="configuration.jdbcDriver">
+      <elementValue elementRef="configuration.jdbcDriver[].path" value="mvn:org.mariadb.jdbc/mariadb-java-client/2.5.3/jar" id="0"/>
+    </elementParameter>
+    <elementParameter field="TACOKIT_VALUE_SELECTION" name="configuration.jdbcClass" value="context.cnx_singlestore_g3_jdbcClass"/>
+    <elementParameter field="TEXT" name="configuration.userId" value="context.cnx_singlestore_g3_userId"/>
+    <elementParameter field="PASSWORD" name="configuration.password" value="context.cnx_singlestore_g3_password"/>
+    <elementParameter field="CHECK" name="configuration.useSharedDBConnection" value="false"/>
+    <elementParameter field="CHECK" name="configuration.useDataSource" value="false"/>
+    <elementParameter field="MAPPING_TYPE" name="configuration.dbMapping" value="&quot;singlestore_id&quot;" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.snowflakeAuth.authenticationType" value="BASIC" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.snowflakeAuth.grantType" value="CLIENT_CREDENTIALS" show="false"/>
+    <elementParameter field="CHECK" name="configuration.useAutoCommit" value="false"/>
+    <elementParameter field="CHECK" name="configuration.autoCommit" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.defineProtocol" value="false" show="false"/>
+    <elementParameter field="TEXT" name="configuration.connectionTimeOut" value="30" show="false"/>
+    <elementParameter field="TEXT" name="configuration.connectionValidationTimeOut" value="10" show="false"/>
+    <elementParameter field="TECHNICAL" name="configuration.__version" value="-1" show="false"/>
+    <elementParameter field="TEXT" name="___TACOKIT_COMPONENT_PLUGIN_NAME___" value="newjdbc" show="false"/>
+    <metadata connector="FLOW" name="tDBConnection_1"/>
+    <metadata connector="LOOKUP" name="LOOKUP"/>
+    <metadata connector="MERGE" name="MERGE"/>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" defaultValue="" key="false" length="255" name="errorCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="255" name="errorMessage" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="200" posY="160">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="TEXT" name="COMPONENT_NAME" value="tJava" show="false"/>
+    <elementParameter field="TEXT" name="VERSION" value="0.101 (ALPHA)" show="false"/>
+    <elementParameter field="TEXT" name="FAMILY" value="Custom_Code" show="false"/>
+    <elementParameter field="CHECK" name="START" value="false" show="false"/>
+    <elementParameter field="CHECK" name="STARTABLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true" show="false"/>
+    <elementParameter field="TEXT" name="HELP" value="org.talend.help.tJava" show="false"/>
+    <elementParameter field="DIRECTORY" name="IREPORT_PATH" value="" show="false"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="/Applications/TalendStudio-8.0.1/studio/configuration/lib/java" show="false"/>
+    <elementParameter field="MEMO_EDITOR_JAVA" name="CODE" value="context.run_id = &quot;run_&quot; + TalendDate.formatDate(&quot;yyyyMMdd_HHmmss&quot;, TalendDate.getCurrentDate());"/>
+    <elementParameter field="MEMO_EDITOR_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_1"/>
+  </node>
+  <node componentName="SingleStoreRow" componentVersion="1" offsetLabelX="0" offsetLabelY="0" posX="320" posY="280">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBRow_1" show="false"/>
+    <elementParameter field="TEXT" name="COMPONENT_NAME" value="Row" show="false"/>
+    <elementParameter field="TECHNICAL" name="TACOKIT_COMPONENT_ID" value="bmV3amRiYyNKREJDI1Jvdw" show="false"/>
+    <elementParameter field="TEXT" name="VERSION" value="1" show="false"/>
+    <elementParameter field="TEXT" name="FAMILY" value="JDBC" show="false"/>
+    <elementParameter field="CHECK" name="START" value="false" show="false"/>
+    <elementParameter field="CHECK" name="STARTABLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true" show="false"/>
+    <elementParameter field="TEXT" name="HELP" value="HELP" show="false"/>
+    <elementParameter field="DIRECTORY" name="IREPORT_PATH" value="" show="false"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.enableDBType" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.setRawUrl" value="true" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.jdbcUrl" value="jdbc:mariadb://" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.port" value="80" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataSet.dataStore.parameters" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataSet.dataStore.jdbcDriver" show="false">
+      <elementValue elementRef="configuration.dataSet.dataStore.jdbcDriver[].path" value="mvn:org.mariadb.jdbc/mariadb-java-client/2.5.3/jar" id="0"/>
+    </elementParameter>
+    <elementParameter field="TACOKIT_VALUE_SELECTION" name="configuration.dataSet.dataStore.jdbcClass" value="org.mariadb.jdbc.Driver" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.useSharedDBConnection" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.useDataSource" value="false" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="configuration.dataSet.dataStore.dbMapping" value="mysql_id" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataSet.dataStore.snowflakeAuth.authenticationType" value="BASIC" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataSet.dataStore.snowflakeAuth.grantType" value="CLIENT_CREDENTIALS" show="false"/>
+    <elementParameter field="MEMO_SQL" name="configuration.dataSet.sqlQuery" value="&quot;INSERT INTO db_bank_g3_raw.dq_profile&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'age' AS column_name, 'varchar(8)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN age IS NULL OR TRIM(age) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(age) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT age) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(age), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(age), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(age), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT age AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY age ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'job' AS column_name, 'varchar(32)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN job IS NULL OR TRIM(job) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(job) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT job) AS card,&#xA;             MIN(NULLIF(TRIM(job), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(job), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(job), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT job AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY job ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'marital' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN marital IS NULL OR TRIM(marital) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(marital) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT marital) AS card,&#xA;             MIN(NULLIF(TRIM(marital), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(marital), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(marital), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT marital AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY marital ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'education' AS column_name, 'varchar(32)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN education IS NULL OR TRIM(education) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(education) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT education) AS card,&#xA;             MIN(NULLIF(TRIM(education), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(education), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(education), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT education AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY education ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'credit_default' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN credit_default IS NULL OR TRIM(credit_default) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(credit_default) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT credit_default) AS card,&#xA;             MIN(NULLIF(TRIM(credit_default), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(credit_default), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(credit_default), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT credit_default AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY credit_default ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'housing' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN housing IS NULL OR TRIM(housing) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(housing) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT housing) AS card,&#xA;             MIN(NULLIF(TRIM(housing), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(housing), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(housing), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT housing AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY housing ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'loan' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN loan IS NULL OR TRIM(loan) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(loan) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT loan) AS card,&#xA;             MIN(NULLIF(TRIM(loan), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(loan), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(loan), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT loan AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY loan ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'contact' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN contact IS NULL OR TRIM(contact) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(contact) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT contact) AS card,&#xA;             MIN(NULLIF(TRIM(contact), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(contact), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(contact), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT contact AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY contact ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'month' AS column_name, 'varchar(8)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN month IS NULL OR TRIM(month) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(month) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT month) AS card,&#xA;             MIN(NULLIF(TRIM(month), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(month), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(month), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT month AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY month ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'day_of_week' AS column_name, 'varchar(8)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN day_of_week IS NULL OR TRIM(day_of_week) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(day_of_week) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT day_of_week) AS card,&#xA;             MIN(NULLIF(TRIM(day_of_week), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(day_of_week), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(day_of_week), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT day_of_week AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY day_of_week ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'duration' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN duration IS NULL OR TRIM(duration) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(duration) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT duration) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(duration), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(duration), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(duration), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT duration AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY duration ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'campaign' AS column_name, 'varchar(8)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN campaign IS NULL OR TRIM(campaign) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(campaign) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT campaign) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(campaign), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(campaign), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(campaign), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT campaign AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY campaign ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'pdays' AS column_name, 'varchar(8)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN pdays IS NULL OR TRIM(pdays) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(pdays) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT pdays) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(pdays), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(pdays), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(pdays), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT pdays AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY pdays ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'previous' AS column_name, 'varchar(8)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN previous IS NULL OR TRIM(previous) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(previous) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT previous) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(previous), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(previous), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(previous), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT previous AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY previous ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'poutcome' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN poutcome IS NULL OR TRIM(poutcome) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(poutcome) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT poutcome) AS card,&#xA;             MIN(NULLIF(TRIM(poutcome), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(poutcome), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(poutcome), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT poutcome AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY poutcome ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'emp_var_rate' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN emp_var_rate IS NULL OR TRIM(emp_var_rate) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(emp_var_rate) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT emp_var_rate) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(emp_var_rate), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(emp_var_rate), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(emp_var_rate), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT emp_var_rate AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY emp_var_rate ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'cons_price_idx' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN cons_price_idx IS NULL OR TRIM(cons_price_idx) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(cons_price_idx) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT cons_price_idx) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(cons_price_idx), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(cons_price_idx), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(cons_price_idx), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT cons_price_idx AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY cons_price_idx ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'cons_conf_idx' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN cons_conf_idx IS NULL OR TRIM(cons_conf_idx) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(cons_conf_idx) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT cons_conf_idx) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(cons_conf_idx), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(cons_conf_idx), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(cons_conf_idx), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT cons_conf_idx AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY cons_conf_idx ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'euribor3m' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN euribor3m IS NULL OR TRIM(euribor3m) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(euribor3m) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT euribor3m) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(euribor3m), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(euribor3m), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(euribor3m), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT euribor3m AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY euribor3m ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'nr_employed' AS column_name, 'varchar(16)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN nr_employed IS NULL OR TRIM(nr_employed) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(nr_employed) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT nr_employed) AS card,&#xA;             CAST(MIN(CAST(NULLIF(TRIM(nr_employed), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mn,&#xA;             CAST(MAX(CAST(NULLIF(TRIM(nr_employed), '') AS DECIMAL(14,4))) AS CHAR(64)) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(nr_employed), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT nr_employed AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY nr_employed ORDER BY c DESC, v LIMIT 1) t&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset, 'y' AS column_name, 'varchar(8)' AS data_type,&#xA;    a.n, a.n_null, ROUND(a.n_null * 100.0 / a.n, 3),&#xA;    a.n_unk, ROUND(a.n_unk * 100.0 / a.n, 3),&#xA;    a.card, a.mn, a.mx, a.avg_len,&#xA;    t.v, ROUND(t.c * 100.0 / a.n, 3)&#xA;FROM (SELECT COUNT(*) AS n,&#xA;             SUM(CASE WHEN y IS NULL OR TRIM(y) = '' THEN 1 ELSE 0 END) AS n_null,&#xA;             SUM(CASE WHEN TRIM(y) = 'unknown' THEN 1 ELSE 0 END) AS n_unk,&#xA;             COUNT(DISTINCT y) AS card,&#xA;             MIN(NULLIF(TRIM(y), '')) AS mn,&#xA;             MAX(NULLIF(TRIM(y), '')) AS mx,&#xA;             ROUND(AVG(LENGTH(NULLIF(TRIM(y), ''))), 2) AS avg_len&#xA;      FROM db_bank_g3_raw.raw_bank_calls) a&#xA;CROSS JOIN (SELECT y AS v, COUNT(*) AS c FROM db_bank_g3_raw.raw_bank_calls&#xA;            GROUP BY y ORDER BY c DESC, v LIMIT 1) t&quot;"/>
+    <elementParameter field="CHECK" name="configuration.dieOnError" value="true"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.useAutoCommit" value="true" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.autoCommit" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.defineProtocol" value="false" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.connectionTimeOut" value="30" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.connectionValidationTimeOut" value="10" show="false"/>
+    <elementParameter field="CHECK" name="configuration.propagateRecordSet" value="false"/>
+    <elementParameter field="COLUMN_LIST" name="configuration.recordSetColumn" value="" show="false"/>
+    <elementParameter field="CHECK" name="configuration.usePreparedStatement" value="false"/>
+    <elementParameter field="TABLE" name="configuration.preparedStatementParameters" show="false"/>
+    <elementParameter field="CHECK" name="configuration.detectErrorWhenMultiStatements" value="false"/>
+    <elementParameter field="TEXT" name="configuration.commitEvery" value="10000"/>
+    <elementParameter field="CHECK" name="configuration.useQueryTimeout" value="false"/>
+    <elementParameter field="TEXT" name="configuration.queryTimeout" value="30" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <elementParameter field="TECHNICAL" name="configuration.dataSet.__version" value="-1" show="false"/>
+    <elementParameter field="TECHNICAL" name="configuration.dataSet.dataStore.__version" value="-1" show="false"/>
+    <elementParameter field="TEXT" name="DATASTORE_PATH" value="configuration.dataSet.dataStore" show="false"/>
+    <metadata connector="FLOW" name="tDBRow_1"/>
+    <metadata connector="LOOKUP" name="LOOKUP"/>
+    <metadata connector="MERGE" name="MERGE"/>
+    <metadata connector="reject" name="reject">
+      <column comment="" defaultValue="" key="false" length="255" name="errorCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="255" name="errorMessage" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="SingleStoreRow" componentVersion="1" offsetLabelX="0" offsetLabelY="0" posX="480" posY="280">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBRow_2" show="false"/>
+    <elementParameter field="TEXT" name="COMPONENT_NAME" value="Row" show="false"/>
+    <elementParameter field="TECHNICAL" name="TACOKIT_COMPONENT_ID" value="bmV3amRiYyNKREJDI1Jvdw" show="false"/>
+    <elementParameter field="TEXT" name="VERSION" value="1" show="false"/>
+    <elementParameter field="TEXT" name="FAMILY" value="JDBC" show="false"/>
+    <elementParameter field="CHECK" name="START" value="false" show="false"/>
+    <elementParameter field="CHECK" name="STARTABLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true" show="false"/>
+    <elementParameter field="TEXT" name="HELP" value="HELP" show="false"/>
+    <elementParameter field="DIRECTORY" name="IREPORT_PATH" value="" show="false"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.enableDBType" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.setRawUrl" value="true" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.jdbcUrl" value="jdbc:mariadb://" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.port" value="80" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataSet.dataStore.parameters" show="false"/>
+    <elementParameter field="TABLE" name="configuration.dataSet.dataStore.jdbcDriver" show="false">
+      <elementValue elementRef="configuration.dataSet.dataStore.jdbcDriver[].path" value="mvn:org.mariadb.jdbc/mariadb-java-client/2.5.3/jar" id="0"/>
+    </elementParameter>
+    <elementParameter field="TACOKIT_VALUE_SELECTION" name="configuration.dataSet.dataStore.jdbcClass" value="org.mariadb.jdbc.Driver" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.useSharedDBConnection" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.useDataSource" value="false" show="false"/>
+    <elementParameter field="MAPPING_TYPE" name="configuration.dataSet.dataStore.dbMapping" value="mysql_id" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataSet.dataStore.snowflakeAuth.authenticationType" value="BASIC" show="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.dataSet.dataStore.snowflakeAuth.grantType" value="CLIENT_CREDENTIALS" show="false"/>
+    <elementParameter field="MEMO_SQL" name="configuration.dataSet.sqlQuery" value="&quot;INSERT INTO db_bank_g3_raw.dq_value_freq&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'job' AS column_name, job AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY job&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'marital' AS column_name, marital AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY marital&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'education' AS column_name, education AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY education&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'credit_default' AS column_name, credit_default AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY credit_default&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'housing' AS column_name, housing AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY housing&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'loan' AS column_name, loan AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY loan&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'contact' AS column_name, contact AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY contact&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'month' AS column_name, month AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY month&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'day_of_week' AS column_name, day_of_week AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY day_of_week&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'poutcome' AS column_name, poutcome AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY poutcome&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'y' AS column_name, y AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY y&#xA;&#xA;UNION ALL&#xA;&#xA;SELECT '&quot; + context.run_id + &quot;' AS run_id, NOW(6) AS run_ts, 'raw_bank_calls' AS dataset,&#xA;    'pdays' AS column_name, pdays AS value, COUNT(*) AS freq,&#xA;    ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM db_bank_g3_raw.raw_bank_calls), 3) AS pct&#xA;FROM db_bank_g3_raw.raw_bank_calls GROUP BY pdays&quot;"/>
+    <elementParameter field="CHECK" name="configuration.dieOnError" value="true"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.useAutoCommit" value="true" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.autoCommit" value="false" show="false"/>
+    <elementParameter field="CHECK" name="configuration.dataSet.dataStore.defineProtocol" value="false" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.connectionTimeOut" value="30" show="false"/>
+    <elementParameter field="TEXT" name="configuration.dataSet.dataStore.connectionValidationTimeOut" value="10" show="false"/>
+    <elementParameter field="CHECK" name="configuration.propagateRecordSet" value="false"/>
+    <elementParameter field="COLUMN_LIST" name="configuration.recordSetColumn" value="" show="false"/>
+    <elementParameter field="CHECK" name="configuration.usePreparedStatement" value="false"/>
+    <elementParameter field="TABLE" name="configuration.preparedStatementParameters" show="false"/>
+    <elementParameter field="CHECK" name="configuration.detectErrorWhenMultiStatements" value="false"/>
+    <elementParameter field="TEXT" name="configuration.commitEvery" value="10000"/>
+    <elementParameter field="CHECK" name="configuration.useQueryTimeout" value="false"/>
+    <elementParameter field="TEXT" name="configuration.queryTimeout" value="30" show="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <elementParameter field="TECHNICAL" name="configuration.dataSet.__version" value="-1" show="false"/>
+    <elementParameter field="TECHNICAL" name="configuration.dataSet.dataStore.__version" value="-1" show="false"/>
+    <elementParameter field="TEXT" name="DATASTORE_PATH" value="configuration.dataSet.dataStore" show="false"/>
+    <metadata connector="FLOW" name="tDBRow_2"/>
+    <metadata connector="LOOKUP" name="LOOKUP"/>
+    <metadata connector="MERGE" name="MERGE"/>
+    <metadata connector="reject" name="reject">
+      <column comment="" defaultValue="" key="false" length="255" name="errorCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="255" name="errorMessage" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="600" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
+    <elementParameter field="TEXT" name="COMPONENT_NAME" value="tPostjob" show="false"/>
+    <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
+    <elementParameter field="TEXT" name="FAMILY" value="Orchestration" show="false"/>
+    <elementParameter field="CHECK" name="START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="STARTABLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true" show="false"/>
+    <elementParameter field="TEXT" name="HELP" value="!!!HELP!!!" show="false"/>
+    <elementParameter field="DIRECTORY" name="IREPORT_PATH" value="" show="false"/>
+    <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="/Applications/TalendStudio-8.0.1/studio/configuration/lib/java" show="false"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+  </node>
+  <node componentName="SingleStoreCommit" componentVersion="1" offsetLabelX="0" offsetLabelY="0" posX="760" posY="400">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBCommit_1" show="false"/>
+    <elementParameter field="TEXT" name="COMPONENT_NAME" value="Commit" show="false"/>
+    <elementParameter field="TECHNICAL" name="TACOKIT_COMPONENT_ID" value="bmV3amRiYyNKREJDI0NvbW1pdA" show="false"/>
+    <elementParameter field="TEXT" name="VERSION" value="1" show="false"/>
+    <elementParameter field="TEXT" name="FAMILY" value="JDBC" show="false"/>
+    <elementParameter field="CHECK" name="START" value="false" show="false"/>
+    <elementParameter field="CHECK" name="STARTABLE" value="true" show="false"/>
+    <elementParameter field="CHECK" name="SUBTREE_START" value="true" show="false"/>
+    <elementParameter field="CHECK" name="END_OF_FLOW" value="true" show="false"/>
+    <elementParameter field="TEXT" name="HELP" value="HELP" show="false"/>
+    <elementParameter field="DIRECTORY" name="IREPORT_PATH" value="" show="false"/>
+    <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
+    <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
+    <elementParameter field="CHECK" name="configuration.close" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tDBConnection_1"/>
+    <metadata connector="LOOKUP" name="LOOKUP"/>
+    <metadata connector="MERGE" name="MERGE"/>
+    <metadata connector="REJECT" name="REJECT">
+      <column comment="" defaultValue="" key="false" length="255" name="errorCode" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="255" name="errorMessage" nullable="false" pattern="" precision="-1" sourceType="" type="id_String" originalLength="-1" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="FLOW" name="tDBCommit_1"/>
+  </node>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tDBConnection_1" offsetLabelX="0" offsetLabelY="0" source="tDBConnection_1" target="tJava_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk1" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tJava_1" offsetLabelX="0" offsetLabelY="0" source="tJava_1" target="tDBRow_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk2" show="false"/>
+  </connection>
+  <connection connectorName="SUBJOB_OK" label="OnSubjobOk" lineStyle="1" metaname="tDBRow_1" offsetLabelX="0" offsetLabelY="0" source="tDBRow_1" target="tDBRow_2">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnSubjobOk3" show="false"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPostjob_1" offsetLabelX="0" offsetLabelY="0" source="tPostjob_1" target="tDBCommit_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="OnComponentOk1" show="false"/>
+  </connection>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBConnection_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="93;174;241" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="93;174;241"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tJava_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="93;174;241" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="93;174;241"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBRow_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="93;174;241" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="93;174;241"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBRow_2" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="93;174;241" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="93;174;241"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" value="true" show="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="93;174;241"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="93;174;241"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBCommit_1" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" value="93;174;241" show="false"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="93;174;241"/>
+  </subjob>
+</talendfile:ProcessType>
