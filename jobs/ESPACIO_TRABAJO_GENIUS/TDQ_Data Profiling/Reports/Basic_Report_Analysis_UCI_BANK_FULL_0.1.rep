@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataquality.reports:TdReport xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:dataquality.reports="http://dataquality.reports" xmi:id="_gr9NkNhzEfGYDKHwOCnAyQ" name="Basic_Report_Analysis_UCI_BANK_FULL" creationDate="2026-11-04T12:16:45.044-0500" defaultContext="Default">
+  <clientDependency href="../Analyses/A_UCI_BANK/Basic_Column_Analysis_UCI_BANK_FULL_0.1.ana#_gr90sNhzEfGYDKHwOCnAyQ"/>
+  <taggedValue xmi:id="_gr90oNhzEfGYDKHwOCnAyQ" tag="OutputFolder" value=""/>
+  <taggedValue xmi:id="_gr90odhzEfGYDKHwOCnAyQ" tag="REP_DBINFO_DBTYPE" value="HSQL"/>
+  <taggedValue xmi:id="_gr90othzEfGYDKHwOCnAyQ" tag="REP_DBINFO_DBVERSION" value=""/>
+  <taggedValue xmi:id="_gr90o9hzEfGYDKHwOCnAyQ" tag="REP_DBINFO_HOST" value=""/>
+  <taggedValue xmi:id="_gr90pNhzEfGYDKHwOCnAyQ" tag="REP_DBINFO_PORT" value=""/>
+  <taggedValue xmi:id="_gr90pdhzEfGYDKHwOCnAyQ" tag="REP_DBINFO_WAREHOUSE" value=""/>
+  <taggedValue xmi:id="_gr90pthzEfGYDKHwOCnAyQ" tag="REP_DBINFO_DBNAME" value="talend_dq"/>
+  <taggedValue xmi:id="_gr90p9hzEfGYDKHwOCnAyQ" tag="REP_DBINFO_SCHEMA" value=""/>
+  <taggedValue xmi:id="_gr90qNhzEfGYDKHwOCnAyQ" tag="REP_DBINFO_USER" value="sa"/>
+  <taggedValue xmi:id="_gr90qdhzEfGYDKHwOCnAyQ" tag="REP_DBINFO_PASSWORD" value="enc:system.encryption.key.v1:fTYwbIc99haT+wcLGITKbr+ShcgRadhrhR2pTQ=="/>
+  <taggedValue xmi:id="_gr90qthzEfGYDKHwOCnAyQ" tag="REP_DBINFO_PARAMETER" value=""/>
+  <taggedValue xmi:id="_gr90q9hzEfGYDKHwOCnAyQ" tag="REP_DBINFO_URL" value="jdbc:hsqldb:file:/C:\Talend-Studio-20260708_1430-V8.0.1\workspace\TDQ_reporting_db\talend_dq"/>
+  <taggedValue xmi:id="_gr90rNhzEfGYDKHwOCnAyQ" tag="REP_DBINFO_DRIVER" value="org.hsqldb.jdbcDriver"/>
+  <taggedValue xmi:id="_gr90rdhzEfGYDKHwOCnAyQ" tag="REP_PASSWORD_CONTEXT" value="false"/>
+  <taggedValue xmi:id="_gr90rthzEfGYDKHwOCnAyQ" tag="Author" value="ariel.navarro+1@trial.3zbicsmipejjvpo.us.qlikcloud.com"/>
+  <taggedValue xmi:id="_gtMjsNhzEfGYDKHwOCnAyQ" tag="REP_GENERATE_FILE" value="true"/>
+  <taggedValue xmi:id="_gtMjsdhzEfGYDKHwOCnAyQ" tag="OutputType" value="pdf"/>
+  <taggedValue xmi:id="_m6S_INhzEfGYDKHwOCnAyQ" tag="OutputFileName" value=""/>
+  <taggedValue xmi:id="_m6S_IdhzEfGYDKHwOCnAyQ" tag="Single output" value="false"/>
+  <taggedValue xmi:id="_nLrDANhzEfGYDKHwOCnAyQ" tag="Purpose" value="Reporte de analisis de uci bank full"/>
+  <taggedValue xmi:id="_nLrDAdhzEfGYDKHwOCnAyQ" tag="Description" value="Reporte de analisis de uci bank full"/>
+  <taggedValue xmi:id="_nLrDAthzEfGYDKHwOCnAyQ" tag="Status" value="development"/>
+  <taggedValue xmi:id="_nLrqEdhzEfGYDKHwOCnAyQ" tag="REP_LAST_RUN_CONTEXT" value="Default"/>
+  <taggedValue xmi:id="_nLrqEthzEfGYDKHwOCnAyQ" tag="REP_AUTHPASSWORD_CONTEXT" value="false"/>
+  <taggedValue xmi:id="_nLrqE9hzEfGYDKHwOCnAyQ" tag="REP_CLIENTSECRET_CONTEXT" value="false"/>
+  <analysisMap xmi:id="_gr90r9hzEfGYDKHwOCnAyQ" mustRefresh="true" reportType="Basic">
+    <analysis href="../Analyses/A_UCI_BANK/Basic_Column_Analysis_UCI_BANK_FULL_0.1.ana#_6RP3oNhxEfGYDKHwOCnAyQ"/>
+  </analysisMap>
+  <ExecInformations xmi:id="_phJFkNhzEfGYDKHwOCnAyQ" executionDate="2026-11-04T12:17:41.011-0500" executionDuration="3414" executionNumber="1" lastRunOk="true" lastExecutionNumberOk="1"/>
+  <context xmi:id="_nLrqENhzEfGYDKHwOCnAyQ" confirmationNeeded="false" hide="false" name="Default"/>
+</dataquality.reports:TdReport>
