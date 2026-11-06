@@ -1,1 +1,24 @@
-[ ]
+[ {
+  "baseItem" : {
+    "id" : "_yFCSkNnOEfGgkOVoniNXdA",
+    "version" : "0.1",
+    "type" : "job"
+  },
+  "relatedItems" : [ {
+    "id" : "_B_QeINnQEfGgkOVoniNXdA",
+    "version" : "Latest",
+    "type" : "context"
+  }, {
+    "id" : "_ClkQMNnQEfGgkOVoniNXdA",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_wHWEkNnTEfGgkOVoniNXdA",
+    "version" : "Latest",
+    "type" : "property"
+  }, {
+    "id" : "_wHWEkNnTEfGgkOVoniNXdA - schema_raw_bank_calls",
+    "version" : "Latest",
+    "type" : "schema"
+  } ]
+} ]
