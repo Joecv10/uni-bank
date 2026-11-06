@@ -133,7 +133,7 @@
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tSystem_1"/>
   </node>
-  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="360" posY="80">
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="280" posY="80">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tPostjob" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
