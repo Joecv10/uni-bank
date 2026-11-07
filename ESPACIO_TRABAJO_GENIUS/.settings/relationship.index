@@ -5,7 +5,7 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_-WKJcNhvEfGYDKHwOCnAyQ",
+    "id" : "built-in",
     "version" : "Latest",
     "type" : "context"
   } ]
@@ -16,7 +16,7 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_-WKJcNhvEfGYDKHwOCnAyQ",
+    "id" : "built-in",
     "version" : "Latest",
     "type" : "context"
   }, {
@@ -39,24 +39,9 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "_-WKJcNhvEfGYDKHwOCnAyQ",
+    "id" : "built-in",
     "version" : "Latest",
     "type" : "context"
-  } ]
-}, {
-  "baseItem" : {
-    "id" : "_fgMFYNhwEfGYDKHwOCnAyQ",
-    "version" : "0.1",
-    "type" : "job"
-  },
-  "relatedItems" : [ {
-    "id" : "_hQUJwNhxEfGYDKHwOCnAyQ",
-    "version" : "Latest",
-    "type" : "property"
-  }, {
-    "id" : "_hQUJwNhxEfGYDKHwOCnAyQ - metadata_bank_full",
-    "version" : "Latest",
-    "type" : "schema"
   } ]
 }, {
   "baseItem" : {
@@ -65,13 +50,9 @@
     "type" : "job"
   },
   "relatedItems" : [ {
-    "id" : "built-in",
+    "id" : "_ADy0gNizEfGniKneJaLp0w",
     "version" : "Latest",
     "type" : "context"
-  }, {
-    "id" : "_hQUJwNhxEfGYDKHwOCnAyQ - metadata_bank_full",
-    "version" : "Latest",
-    "type" : "schema"
   }, {
     "id" : "_wdmUANi4EfGQOsO7K17S2w - metadata_bank_full_additional",
     "version" : "Latest",

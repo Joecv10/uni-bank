@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" defaultContext="Default" jobType="Standard">
   <context confirmationNeeded="false" hide="false" name="Default">
-    <contextParameter comment="" name="DB_HOST" prompt="DB_HOST?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="209.50.245.36" internalId="_5Y46INlfEfG8YfyhiAOB-A"/>
-    <contextParameter comment="" name="DB_NAME" prompt="DB_NAME?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="DSADEV" internalId="_5Y46IdlfEfG8YfyhiAOB-A"/>
-    <contextParameter comment="" name="DB_PASSWORD" prompt="DB_PASSWORD?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="CambiarEsta#2026" internalId="_5Y46ItlfEfG8YfyhiAOB-A"/>
-    <contextParameter comment="" name="DB_PORT" prompt="DB_PORT?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="3306" internalId="_5Y46I9lfEfG8YfyhiAOB-A"/>
-    <contextParameter comment="" name="DB_USER" prompt="DB_USER?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="dev_genius" internalId="_5Y46JNlfEfG8YfyhiAOB-A"/>
-    <contextParameter comment="" name="FILE_UCI_BANK" prompt="FILE_UCI_BANK?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank" internalId="_5Y46JdlfEfG8YfyhiAOB-A"/>
-    <contextParameter comment="" name="LOAD_SOURCE_TAG" prompt="LOAD_SOURCE_TAG?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="g3_aine_uci_bank" internalId="_5Y46JtlfEfG8YfyhiAOB-A"/>
-    <contextParameter comment="" name="PIPELINE_NAME" prompt="PIPELINE_NAME?" promptNeeded="false" repositoryContextId="_-WKJcNhvEfGYDKHwOCnAyQ" type="id_String" value="g3_uci_bank_pipeline" internalId="_5Y46J9lfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="DB_HOST" prompt="DB_HOST?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="209.50.245.36" internalId="_5Y46INlfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="DB_NAME" prompt="DB_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="DSADEV" internalId="_5Y46IdlfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="DB_PASSWORD" prompt="DB_PASSWORD?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="CambiarEsta#2026" internalId="_5Y46ItlfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="DB_PORT" prompt="DB_PORT?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="3306" internalId="_5Y46I9lfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="DB_USER" prompt="DB_USER?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="dev_genius" internalId="_5Y46JNlfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="FILE_UCI_BANK" prompt="FILE_UCI_BANK?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank" internalId="_5Y46JdlfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="LOAD_SOURCE_TAG" prompt="LOAD_SOURCE_TAG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="g3_aine_uci_bank" internalId="_5Y46JtlfEfG8YfyhiAOB-A"/>
+    <contextParameter comment="" name="PIPELINE_NAME" prompt="PIPELINE_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="g3_uci_bank_pipeline" internalId="_5Y46J9lfEfG8YfyhiAOB-A"/>
   </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" value="Info" show="false"/>
