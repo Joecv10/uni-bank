@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd">
+  <talendfile:ContextType xmi:id="_AEc70NizEfGniKneJaLp0w" confirmationNeeded="false" hide="false" name="DEV">
+    <contextParameter xmi:id="_AEc70dizEfGniKneJaLp0w" comment="" name="DB_NAME" prompt="DB_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="DSADEV"/>
+    <contextParameter xmi:id="_AEc70tizEfGniKneJaLp0w" comment="" name="DB_USER" prompt="DB_USER?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="dev_genius"/>
+    <contextParameter xmi:id="_AEc709izEfGniKneJaLp0w" comment="" name="DB_PASSWORD" prompt="DB_PASSWORD?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="CambiarEsta#2026"/>
+    <contextParameter xmi:id="_AEc71NizEfGniKneJaLp0w" comment="" name="DB_PORT" prompt="DB_PORT?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="3306"/>
+    <contextParameter xmi:id="_AEc71dizEfGniKneJaLp0w" comment="" name="DB_HOST" prompt="DB_HOST?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="209.50.245.36"/>
+    <contextParameter xmi:id="_AEc71tizEfGniKneJaLp0w" comment="" name="LOAD_SOURCE_TAG" prompt="LOAD_SOURCE_TAG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="G3_UCI_BANK"/>
+    <contextParameter xmi:id="_AEc719izEfGniKneJaLp0w" comment="" name="PIPELINE_NAME" prompt="PIPELINE_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="UCI_BANK_PIPELINE"/>
+    <contextParameter xmi:id="_AEc72NizEfGniKneJaLp0w" comment="" name="FILE_UCI_BANK" prompt="FILE_UCI_BANK?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank-additional/bank-additional/bank-additional-full.csv"/>
+  </talendfile:ContextType>
+  <talendfile:ContextType xmi:id="_GGRUUNizEfGniKneJaLp0w" confirmationNeeded="false" hide="false" name="PROD">
+    <contextParameter xmi:id="_GGRUUdizEfGniKneJaLp0w" comment="" name="DB_NAME" prompt="DB_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="DSADEV"/>
+    <contextParameter xmi:id="_GGRUUtizEfGniKneJaLp0w" comment="" name="DB_USER" prompt="DB_USER?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="dev_genius"/>
+    <contextParameter xmi:id="_GGRUU9izEfGniKneJaLp0w" comment="" name="DB_PASSWORD" prompt="DB_PASSWORD?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="CambiarEsta#2026"/>
+    <contextParameter xmi:id="_GGRUVNizEfGniKneJaLp0w" comment="" name="DB_PORT" prompt="DB_PORT?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="3306"/>
+    <contextParameter xmi:id="_GGRUVdizEfGniKneJaLp0w" comment="" name="DB_HOST" prompt="DB_HOST?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="209.50.245.36"/>
+    <contextParameter xmi:id="_GGRUVtizEfGniKneJaLp0w" comment="" name="LOAD_SOURCE_TAG" prompt="LOAD_SOURCE_TAG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="G3_UCI_BANK"/>
+    <contextParameter xmi:id="_GGRUV9izEfGniKneJaLp0w" comment="" name="PIPELINE_NAME" prompt="PIPELINE_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="UCI_BANK_PIPELINE"/>
+    <contextParameter xmi:id="_GGRUWNizEfGniKneJaLp0w" comment="" name="FILE_UCI_BANK" prompt="FILE_UCI_BANK?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank"/>
+  </talendfile:ContextType>
+  <talendfile:ContextType xmi:id="_GGRUWdizEfGniKneJaLp0w" confirmationNeeded="false" hide="false" name="QA">
+    <contextParameter xmi:id="_GGRUWtizEfGniKneJaLp0w" comment="" name="DB_NAME" prompt="DB_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="DSADEV"/>
+    <contextParameter xmi:id="_GGRUW9izEfGniKneJaLp0w" comment="" name="DB_USER" prompt="DB_USER?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="dev_genius"/>
+    <contextParameter xmi:id="_GGRUXNizEfGniKneJaLp0w" comment="" name="DB_PASSWORD" prompt="DB_PASSWORD?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="CambiarEsta#2026"/>
+    <contextParameter xmi:id="_GGRUXdizEfGniKneJaLp0w" comment="" name="DB_PORT" prompt="DB_PORT?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="3306"/>
+    <contextParameter xmi:id="_GGRUXtizEfGniKneJaLp0w" comment="" name="DB_HOST" prompt="DB_HOST?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="209.50.245.36"/>
+    <contextParameter xmi:id="_GGRUX9izEfGniKneJaLp0w" comment="" name="LOAD_SOURCE_TAG" prompt="LOAD_SOURCE_TAG?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="G3_UCI_BANK"/>
+    <contextParameter xmi:id="_GGRUYNizEfGniKneJaLp0w" comment="" name="PIPELINE_NAME" prompt="PIPELINE_NAME?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="UCI_BANK_PIPELINE"/>
+    <contextParameter xmi:id="_GGRUYdizEfGniKneJaLp0w" comment="" name="FILE_UCI_BANK" prompt="FILE_UCI_BANK?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank"/>
+  </talendfile:ContextType>
+</xmi:XMI>
