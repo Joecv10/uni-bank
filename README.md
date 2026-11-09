@@ -225,6 +225,48 @@ El principal aporte del modelo es la generación de un **scoring de propensión 
 
 ## 8. Cómo ejecutar el pipeline
 
+### 8.1. Ejecución del proceso en Talend
+
+La ejecución del pipeline se realiza desde **Talend Studio 8.0.1**, mediante el job orquestador `JOB_00_orquestador_UCI_BANK`, que coordina las diferentes etapas del procesamiento.
+
+**Pasos de ejecución:**
+
+1. Abrir el proyecto en Talend Studio y localizar el job `JOB_00_orquestador_UCI_BANK`.
+2. Verificar la conexión con la base de datos y los parámetros de configuración.
+3. Ejecutar el job orquestador mediante la opción **Run**.
+4. Esperar a que finalicen los procesos de carga, validación, scoring y construcción del modelo dimensional.
+5. Verificar los resultados en la base de datos `DSADEV`.
+
+### 8.2. Flujo de procesamiento y tablas generadas
+
+El job orquestador ejecuta las siguientes etapas:
+
+| Etapa | Proceso | Resultado |
+|---|---|---|
+| 1. Carga RAW | Extrae el archivo original y almacena los registros sin aplicar modificaciones. | `raw_bank_g3` |
+| 2. Calidad de datos | Aplica las reglas DQ, elimina duplicados y clasifica los registros según su cumplimiento. | `stg_bank_OK_g3` y `stg_bank_NOTOK_g3` |
+| 3. Scoring | Ejecuta el script Python, carga el modelo previamente entrenado (`.joblib`) y calcula la propensión de suscripción de cada registro válido. | `stg_bank_OK_score_g3` |
+| 4. Modelo dimensional | Construye las dimensiones de clientes y campañas, y la tabla de hechos para el análisis. | `mart_dim_client_g3`, `mart_dim_campaign_g3` y `mart_fact_calls_g3` |
+| 5. Calidad y seguimiento | Almacena los resultados de las reglas por registro y el resumen de calidad de cada ejecución. | `dq_record_g3` y `dq_scorecard_g3` |
+
+El proceso Python utiliza el modelo entrenado y guardado en formato Joblib para generar un score de propensión de 0 a 100, una clasificación predictiva y un indicador `top20`, que identifica al 20 % de registros con mayor puntuación.
+
+### 8.3. Consultas de verificación
+
+Una vez finalizada la ejecución, se pueden utilizar las siguientes consultas SQL para verificar los resultados.
+
+**Datos originales y registros procesados**
+
+```sql
+-- Cantidad de registros originales
+SELECT COUNT(*) FROM raw_bank_g3;
+
+-- Registros válidos
+SELECT * FROM stg_bank_OK_g3;
+
+-- Registros rechazados
+SELECT * FROM stg_bank_NOTOK_g3;
+
 ## 9. Equipo y roles
 
 ## 10. Próximos pasos
