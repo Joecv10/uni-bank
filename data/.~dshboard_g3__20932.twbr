@@ -6,6 +6,8 @@
     <AccessibleZoneTabOrder />
     <AnimationOnByDefault />
     <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
     <MarkAnimation />
     <ObjectModelEncapsulateLegacy />
     <ObjectModelRelationshipPerfOptions />
@@ -25,8 +27,8 @@
   <datasources>
     <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
       <aliases enabled='yes' />
-      <column alias='Grupo de edad' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Age group&quot;'>
-        <calculation class='tableau' formula='&quot;Age group&quot;' />
+      <column alias='Ocupación' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Job&quot;'>
+        <calculation class='tableau' formula='&quot;Job&quot;' />
         <aliases>
           <alias key='&quot;Age group&quot;' value='Grupo de edad' />
           <alias key='&quot;Education&quot;' value='Educación' />
@@ -636,13 +638,20 @@
       <aliases enabled='yes' />
       <column datatype='string' name='[:Measure Names]' role='dimension' type='nominal'>
         <aliases>
-          <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;' value='F1 (test 20 %)' />
+          <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;' value='F1' />
+          <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_1438501124063233:qk]&quot;' value='Total llamadas' />
           <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063128817666:qk]&quot;' value='Suscriptores captados' />
-          <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129030659:qk]&quot;' value='Lift vs. azar' />
-          <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129419780:qk]&quot;' value='Clientes a llamar' />
+          <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129030659:qk]&quot;' value='Ventaja frente al azar' />
+          <alias key='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129419780:qk]&quot;' value='Clientes prioritarios' />
         </aliases>
       </column>
-      <column caption='Subscription rate' datatype='real' default-format='p0.0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
+      <column caption='Etiqueta tasa' datatype='real' default-format='p0%' name='[Calculation_1438501109952512]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [Calculation_4450063077896192] &gt;= 0.05 THEN [Calculation_4450063077896192] END' />
+      </column>
+      <column caption='Total clientes' datatype='integer' name='[Calculation_1438501124063233]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='COUNT([call_key])' />
+      </column>
+      <column caption='Subscription rate' datatype='real' default-format='p0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='AVG(IIF([subscribed] = &quot;yes&quot;, 1, 0))' />
       </column>
       <column caption='Call group' datatype='string' name='[Calculation_4450063082463233]' role='dimension' type='nominal'>
@@ -661,7 +670,7 @@
       <column caption='Call list size' datatype='integer' name='[Calculation_4450063129419780]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='SUM(IIF([Calculation_4450063082463233] = &quot;Top 20%&quot;, 1, 0))' />
       </column>
-      <column caption='F1 (test set)' datatype='real' default-format='n#,##0.00;-#,##0.00' name='[Calculation_4450063129501701]' role='measure' type='quantitative'>
+      <column caption='F1 (test set)' datatype='real' default-format='p0%' name='[Calculation_4450063129501701]' role='measure' type='quantitative'>
         <calculation class='tableau' formula='0.52' />
       </column>
       <column caption='Age group' datatype='string' name='[Calculation_4450063134978054]' role='dimension' type='nominal'>
@@ -724,6 +733,7 @@
       <column aggregation='Sum' caption='Top20' datatype='integer' name='[top20]' role='dimension' type='ordinal' />
       <column-instance column='[Calculation_4450063082463233]' derivation='None' name='[none:Calculation_4450063082463233:nk]' pivot='key' type='nominal' />
       <column-instance column='[Calculation_4450063129501701]' derivation='Sum' name='[sum:Calculation_4450063129501701:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1438501124063233]' derivation='User' name='[usr:Calculation_1438501124063233:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_4450063128817666]' derivation='User' name='[usr:Calculation_4450063128817666:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_4450063129030659]' derivation='User' name='[usr:Calculation_4450063129030659:qk]' pivot='key' type='quantitative' />
       <column-instance column='[Calculation_4450063129419780]' derivation='User' name='[usr:Calculation_4450063129419780:qk]' pivot='key' type='quantitative' />
@@ -741,14 +751,20 @@
       <style>
         <style-rule element='mark'>
           <encoding attr='color' field='[:Measure Names]' type='palette'>
-            <map to='#4e79a7'>
+            <map to='#2c5985'>
+              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129419780:qk]&quot;</bucket>
+            </map>
+            <map to='#32779b'>
+              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;</bucket>
+            </map>
+            <map to='#32779b'>
+              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_1438501124063233:qk]&quot;</bucket>
+            </map>
+            <map to='#32779b'>
               <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063128817666:qk]&quot;</bucket>
             </map>
-            <map to='#e15759'>
+            <map to='#32779b'>
               <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129030659:qk]&quot;</bucket>
-            </map>
-            <map to='#f28e2b'>
-              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;</bucket>
             </map>
           </encoding>
           <encoding attr='color' field='[none:Calculation_4450063082463233:nk]' palette='blue_teal_10_0' type='palette'>
@@ -765,8 +781,8 @@
         <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
       </semantic-values>
       <datasource-dependencies datasource='Parameters'>
-        <column alias='Grupo de edad' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Age group&quot;'>
-          <calculation class='tableau' formula='&quot;Age group&quot;' />
+        <column alias='Ocupación' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Job&quot;'>
+          <calculation class='tableau' formula='&quot;Job&quot;' />
           <aliases>
             <alias key='&quot;Age group&quot;' value='Grupo de edad' />
             <alias key='&quot;Education&quot;' value='Educación' />
@@ -842,7 +858,6 @@
           <formatted-text>
             <run bold='true' fontcolor='#555555' fontsize='12'>Top 10 clientes a llamar primero</run>
             <run>Æ&#10;</run>
-            <run fontcolor='#555555' fontsize='10'>Lista completa: 8,235 clientes en mart_fact_calls_g3</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -853,8 +868,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column alias='Grupo de edad' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Age group&quot;'>
-              <calculation class='tableau' formula='&quot;Age group&quot;' />
+            <column alias='Ocupación' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Job&quot;'>
+              <calculation class='tableau' formula='&quot;Job&quot;' />
               <aliases>
                 <alias key='&quot;Age group&quot;' value='Grupo de edad' />
                 <alias key='&quot;Education&quot;' value='Educación' />
@@ -943,7 +958,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run bold='true' fontsize='12'>Llamando al 20 % con mayor score se alcanza el 76% de los suscriptores</run>
+            <run bold='true' fontsize='10'>Si el banco hubiera llamado solo al 20 % con mayor score, habría alcanzado el 76 % de los suscriptores</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -953,7 +968,10 @@
             <datasource caption='mart_fact_calls_g3+ (DSADEV)' name='federated.0dplblo1l59b0k1h9tt770fu0siy' />
           </datasources>
           <datasource-dependencies datasource='federated.0dplblo1l59b0k1h9tt770fu0siy'>
-            <column caption='Subscription rate' datatype='real' default-format='p0.0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
+            <column caption='Total clientes' datatype='integer' name='[Calculation_1438501124063233]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='COUNT([call_key])' />
+            </column>
+            <column caption='Subscription rate' datatype='real' default-format='p0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='AVG(IIF([subscribed] = &quot;yes&quot;, 1, 0))' />
             </column>
             <column caption='Call group' datatype='string' name='[Calculation_4450063082463233]' role='dimension' type='nominal'>
@@ -972,52 +990,57 @@
             <column caption='Call list size' datatype='integer' name='[Calculation_4450063129419780]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='SUM(IIF([Calculation_4450063082463233] = &quot;Top 20%&quot;, 1, 0))' />
             </column>
-            <column caption='F1 (test set)' datatype='real' default-format='n#,##0.00;-#,##0.00' name='[Calculation_4450063129501701]' role='measure' type='quantitative'>
+            <column caption='F1 (test set)' datatype='real' default-format='p0%' name='[Calculation_4450063129501701]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='0.52' />
             </column>
+            <column caption='Call Key' datatype='integer' name='[call_key]' role='dimension' type='ordinal' />
             <column aggregation='Sum' caption='Decil' datatype='integer' name='[decil]' role='dimension' type='ordinal' />
-            <column caption='Month' datatype='string' name='[month]' role='dimension' type='nominal' />
-            <column-instance column='[month]' derivation='None' name='[none:month:nk]' pivot='key' type='nominal' />
             <column caption='Subscribed' datatype='string' name='[subscribed]' role='dimension' type='nominal' />
             <column-instance column='[Calculation_4450063129501701]' derivation='Sum' name='[sum:Calculation_4450063129501701:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1438501124063233]' derivation='User' name='[usr:Calculation_1438501124063233:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_4450063128817666]' derivation='User' name='[usr:Calculation_4450063128817666:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_4450063129030659]' derivation='User' name='[usr:Calculation_4450063129030659:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_4450063129419780]' derivation='User' name='[usr:Calculation_4450063129419780:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[:Measure Names]'>
             <groupfilter function='union' user:op='manual'>
-              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_1438501124063233:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129419780:qk]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063128817666:qk]&quot;' />
               <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129030659:qk]&quot;' />
-              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129419780:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;' />
             </groupfilter>
           </filter>
           <manual-sort column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[:Measure Names]' direction='ASC'>
             <dictionary>
-              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_1438501124063233:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129419780:qk]&quot;</bucket>
               <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063128817666:qk]&quot;</bucket>
               <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129030659:qk]&quot;</bucket>
-              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063129419780:qk]&quot;</bucket>
+              <bucket>&quot;[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:Calculation_4450063129501701:qk]&quot;</bucket>
             </dictionary>
           </manual-sort>
-          <filter class='categorical' column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[none:month:nk]' filter-group='3'>
-            <groupfilter function='level-members' level='[none:month:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
-          </filter>
           <slices>
             <column>[federated.0dplblo1l59b0k1h9tt770fu0siy].[:Measure Names]</column>
-            <column>[federated.0dplblo1l59b0k1h9tt770fu0siy].[none:month:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='cell'>
             <format attr='height' value='38' />
-            <format attr='font-size' value='22' />
             <format attr='font-weight' value='bold' />
             <format attr='cell-w' value='60' />
             <format attr='cell-h' value='40' />
             <format attr='cell' value='20' />
             <format attr='cell-q' value='100' />
+            <format attr='font-size' value='28' />
+            <format attr='text-align' value='center' />
+            <format attr='vertical-align' value='center' />
+            <format attr='color' value='#2c5981' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-align' value='center' />
+            <format attr='vertical-align' value='center' />
           </style-rule>
         </style>
         <panes>
@@ -1027,6 +1050,7 @@
             </view>
             <mark class='Automatic' />
             <encodings>
+              <color column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[:Measure Names]' />
               <text column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[Multiple Values]' />
             </encodings>
             <style>
@@ -1053,7 +1077,7 @@
             <datasource caption='mart_fact_calls_g3+ (DSADEV)' name='federated.0dplblo1l59b0k1h9tt770fu0siy' />
           </datasources>
           <datasource-dependencies datasource='federated.0dplblo1l59b0k1h9tt770fu0siy'>
-            <column caption='Subscription rate' datatype='real' default-format='p0.0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
+            <column caption='Subscription rate' datatype='real' default-format='p0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='AVG(IIF([subscribed] = &quot;yes&quot;, 1, 0))' />
             </column>
             <column caption='Call group' datatype='string' name='[Calculation_4450063082463233]' role='dimension' type='nominal'>
@@ -1072,7 +1096,7 @@
             <column caption='Subscribed' datatype='string' name='[subscribed]' role='dimension' type='nominal' />
             <column-instance column='[Calculation_4450063077896192]' derivation='User' name='[usr:Calculation_4450063077896192:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
-          <filter class='categorical' column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[none:month:nk]' filter-group='3'>
+          <filter class='categorical' column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[none:month:nk]'>
             <groupfilter function='level-members' level='[none:month:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
           </filter>
           <slices>
@@ -1109,7 +1133,7 @@
           <formatted-text>
             <run bold='true' fontcolor='#555555' fontsize='12'>La tasa de suscripción sube con el score</run>
             <run>Æ&#10;</run>
-            <run fontcolor='#555555' fontsize='10'>Deciles 9–10 = lista de llamadas · más oscuro = más probable</run>
+            <run fontcolor='#666666' fontsize='8'>Deciles 9–10 = lista de llamadas · más oscuro = más probable</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -1119,25 +1143,42 @@
             <datasource caption='mart_fact_calls_g3+ (DSADEV)' name='federated.0dplblo1l59b0k1h9tt770fu0siy' />
           </datasources>
           <datasource-dependencies datasource='federated.0dplblo1l59b0k1h9tt770fu0siy'>
-            <column caption='Subscription rate' datatype='real' default-format='p0.0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
+            <column caption='Etiqueta tasa' datatype='real' default-format='p0%' name='[Calculation_1438501109952512]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='IF [Calculation_4450063077896192] &gt;= 0.05 THEN [Calculation_4450063077896192] END' />
+            </column>
+            <column caption='Subscription rate' datatype='real' default-format='p0%' name='[Calculation_4450063077896192]' role='measure' type='quantitative'>
               <calculation class='tableau' formula='AVG(IIF([subscribed] = &quot;yes&quot;, 1, 0))' />
             </column>
             <column aggregation='Sum' caption='Decil' datatype='integer' name='[decil]' role='dimension' type='ordinal' />
             <column-instance column='[decil]' derivation='None' name='[none:decil:ok]' pivot='key' type='ordinal' />
             <column caption='Subscribed' datatype='string' name='[subscribed]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_1438501109952512]' derivation='User' name='[usr:Calculation_1438501109952512:qk]' pivot='key' type='quantitative' />
             <column-instance column='[Calculation_4450063077896192]' derivation='User' name='[usr:Calculation_4450063077896192:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0dplblo1l59b0k1h9tt770fu0siy].[none:decil:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063077896192:qk]' shelf='columns' />
+          </shelf-sorts>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='axis'>
             <format attr='title' class='0' field='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063077896192:qk]' scope='rows' value='Tasa de suscripción' />
+            <encoding attr='space' class='0' field='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063077896192:qk]' field-type='quantitative' major-origin='0.0' major-show='false' major-spacing='0.10000000000000001' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' data-class='subtotal' field='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_1438501109952512:qk]' value='p0%' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='text-format' field='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_1438501109952512:qk]' value='p0%' />
           </style-rule>
           <style-rule element='mark'>
             <encoding attr='color' field='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063077896192:qk]' num-steps='5' palette='blue_teal_10_0' type='interpolated' />
           </style-rule>
           <style-rule element='worksheet'>
             <format attr='display-field-labels' scope='cols' value='false' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
           </style-rule>
         </style>
         <panes>
@@ -1148,12 +1189,12 @@
             <mark class='Automatic' />
             <encodings>
               <color column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063077896192:qk]' />
-              <text column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063077896192:qk]' />
+              <text column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_1438501109952512:qk]' />
             </encodings>
             <style>
               <style-rule element='mark'>
-                <format attr='mark-labels-show' value='true' />
                 <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
               </style-rule>
             </style>
           </pane>
@@ -1169,7 +1210,9 @@
           <formatted-text>
             <run bold='true' fontcolor='#555555' fontsize='12'>   ¿En qué perfiles están los clientes a llamar?</run>
             <run>Æ&#10;</run>
-            <run fontcolor='#555555' fontsize='10'>   Barra = clientes del grupo · oscuro = en la lista · % = parte del grupo en la lista</run>
+            <run fontcolor='#666666' fontsize='8'>   Barra = clientes del grupo · oscuro = en la lista </run>
+            <run>Æ&#10;</run>
+            <run fontcolor='#666666' fontsize='8'>   % = parte del grupo en la lista</run>
             <run>Æ&#10;</run>
           </formatted-text>
         </title>
@@ -1181,8 +1224,8 @@
             <datasource name='Parameters' />
           </datasources>
           <datasource-dependencies datasource='Parameters'>
-            <column alias='Grupo de edad' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Age group&quot;'>
-              <calculation class='tableau' formula='&quot;Age group&quot;' />
+            <column alias='Ocupación' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Job&quot;'>
+              <calculation class='tableau' formula='&quot;Job&quot;' />
               <aliases>
                 <alias key='&quot;Age group&quot;' value='Grupo de edad' />
                 <alias key='&quot;Education&quot;' value='Educación' />
@@ -1289,8 +1332,8 @@
         <datasource name='Parameters' />
       </datasources>
       <datasource-dependencies datasource='Parameters'>
-        <column alias='Grupo de edad' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Age group&quot;'>
-          <calculation class='tableau' formula='&quot;Age group&quot;' />
+        <column alias='Ocupación' caption='Profile' datatype='string' name='[Parameter 4450063135358983]' param-domain-type='list' role='measure' type='nominal' value='&quot;Job&quot;'>
+          <calculation class='tableau' formula='&quot;Job&quot;' />
           <aliases>
             <alias key='&quot;Age group&quot;' value='Grupo de edad' />
             <alias key='&quot;Education&quot;' value='Educación' />
@@ -1323,7 +1366,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='140' h='20555' id='17' is-fixed='true' name='Headline' w='72891' x='625' y='6666'>
-                  <layout-cache cell-count-w='4' non-cell-size-w='1' type-h='cell' type-w='cell' />
+                  <layout-cache cell-count-w='5' non-cell-size-w='1' type-h='cell' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1331,8 +1374,11 @@
                     <format attr='margin' value='4' />
                   </zone-style>
                 </zone>
-                <zone h='71668' id='6' type-v2='layout-basic' w='72891' x='625' y='27221'>
-                  <zone h='63889' id='13' name='Score by profile' w='36458' x='37058' y='35000'>
+                <zone fixed-size='44' h='6111' id='39' is-fixed='true' layout-strategy-id='distribute-evenly' param='horz' type-v2='layout-flow' w='72891' x='625' y='27221'>
+                  <zone forceUpdate='true' h='6111' id='44' type-v2='text' w='14609' x='625' y='27222'>
+                    <formatted-text>
+                      <run fontalignment='1' fontcolor='#898989' fontsize='8'>Registros analizados</run>
+                    </formatted-text>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -1340,7 +1386,61 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone custom-title='true' h='7779' id='18' mode='compact' param='[Parameters].[Parameter 4450063135358983]' type-v2='paramctrl' w='36458' x='37058' y='27221'>
+                  <zone forceUpdate='true' h='6111' id='43' type-v2='text' w='14610' x='15234' y='27222'>
+                    <formatted-text>
+                      <run fontalignment='1' fontcolor='#898989' fontsize='8'>20 % + score</run>
+                    </formatted-text>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone forceUpdate='true' h='6111' id='41' type-v2='text' w='14609' x='29844' y='27222'>
+                    <formatted-text>
+                      <run fontalignment='1' fontcolor='#898989' fontsize='8'>En el grupo prioritaro</run>
+                    </formatted-text>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone fixed-size='298' forceUpdate='true' h='6111' id='42' is-fixed='true' type-v2='text' w='14531' x='44453' y='27222'>
+                    <formatted-text>
+                      <run fontalignment='1' fontcolor='#898989' fontsize='8'>Mayor concentración de suscripciones</run>
+                    </formatted-text>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone forceUpdate='true' h='6111' id='40' type-v2='text' w='14532' x='58984' y='27222'>
+                    <formatted-text>
+                      <run fontalignment='1' fontcolor='#898989' fontsize='8'>Desempeño del modelo en datos de prueba</run>
+                    </formatted-text>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                </zone>
+                <zone h='65557' id='6' type-v2='layout-basic' w='72891' x='625' y='33332'>
+                  <zone h='58444' id='13' name='Score by profile' w='36458' x='37058' y='40445'>
+                    <zone-style>
+                      <format attr='border-color' value='#000000' />
+                      <format attr='border-style' value='none' />
+                      <format attr='border-width' value='0' />
+                      <format attr='margin' value='4' />
+                    </zone-style>
+                  </zone>
+                  <zone custom-title='true' h='7113' id='18' mode='compact' param='[Parameters].[Parameter 4450063135358983]' type-v2='paramctrl' w='36458' x='37058' y='33332'>
                     <formatted-text>
                       <run>Perfil</run>
                     </formatted-text>
@@ -1351,7 +1451,7 @@
                       <format attr='margin' value='4' />
                     </zone-style>
                   </zone>
-                  <zone h='71668' id='19' name='Rate by decile' w='36433' x='625' y='27221'>
+                  <zone h='65557' id='19' name='Rate by decile' w='36433' x='625' y='33332'>
                     <zone-style>
                       <format attr='border-color' value='#000000' />
                       <format attr='border-style' value='none' />
@@ -1487,6 +1587,11 @@
             <card type='title' />
           </strip>
         </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[federated.0dplblo1l59b0k1h9tt770fu0siy].[usr:Calculation_4450063077896192:qk]' type='color' />
+          </strip>
+        </edge>
       </cards>
       <simple-id uuid='{686A63CE-EF2A-46C3-B609-C1BD122B3967}' />
     </window>
@@ -1586,6 +1691,11 @@
             <card type='title' />
           </strip>
         </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0dplblo1l59b0k1h9tt770fu0siy].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
       </cards>
       <viewpoint>
         <zoom type='entire-view' />
@@ -1608,7 +1718,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='-1' />
+      <active id='17' />
       <simple-id uuid='{5C17D7D4-FB2D-43DC-9DFD-73F816BC3048}' />
     </window>
   </windows>
