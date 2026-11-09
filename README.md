@@ -361,6 +361,37 @@ El principal aporte del modelo es la generación de un **scoring de propensión 
 
 ## 7. Hallazgos
 
+El análisis de calidad, el modelo predictivo y la visualización permitieron identificar los siguientes hallazgos:
+
+### 7.1. Hallazgos sobre los datos
+
+- **Alta calidad de los registros:** de los 41.188 registros originales, 12 fueron identificados como duplicados exactos y 5 registros presentaron edades fuera del rango establecido. Como resultado, se obtuvieron 41.171 registros válidos para el procesamiento analítico.
+- **Valores especiales del dataset:** el valor `999` de la variable `pdays` aparece en el 96,32 % de los registros y representa contactos que no habían sido realizados anteriormente. Se conservó su significado durante el procesamiento para evitar interpretarlo como un dato faltante o inválido.
+- **Categorías desconocidas:** los valores `unknown` se conservaron como categorías válidas, ya que forman parte de la documentación original del dataset y no representan necesariamente registros incompletos.
+- **Desbalance de clases:** aproximadamente el 11,27 % de los contactos terminó en una suscripción, mientras que el 88,73 % restante no contrató el producto. Esta distribución justifica utilizar F1-score como métrica principal de evaluación.
+
+### 7.2. Hallazgos del modelo predictivo
+
+- **Capacidad de identificación de suscriptores:** el modelo Random Forest con ponderación de clases alcanzó un F1-score de 0,5229, una precisión de 46,80 % y un recall de 59,22 % sobre el conjunto de prueba.
+- **Capacidad de discriminación:** el ROC-AUC de 0,8049 evidencia que el modelo tiene una capacidad adecuada para diferenciar entre contactos con mayor y menor propensión de suscripción.
+- **Exclusión de variables no disponibles al momento de decidir:** aunque los experimentos que incorporaron `duration` obtuvieron mejores resultados, esta variable se excluyó del modelo definitivo porque solo se conoce después de realizar la llamada. Así, el scoring puede utilizarse para priorizar contactos antes de iniciar la campaña.
+
+### 7.3. Hallazgos para la priorización comercial
+
+El análisis de los diez deciles de propensión evidenció una relación entre el score asignado y la tasa de suscripción histórica:
+
+- Los deciles inferiores presentan tasas de conversión reducidas. Por ejemplo, el primer decil registra una conversión de 0,53 %.
+- Los deciles superiores concentran una mayor proporción de suscripciones. El décimo decil alcanza una tasa de conversión histórica de 60,22 %, mientras que el noveno registra 25,38 %.
+- Al seleccionar el 20 % de contactos con mayor puntuación, se obtiene un Lift aproximado de 3,8 y se concentra alrededor del 76 % de las suscripciones históricas.
+
+Estos resultados muestran que el scoring permite ordenar los contactos según su propensión estimada y orientar el esfuerzo comercial hacia los grupos con mayor concentración histórica de suscripciones.
+
+### 7.4. Aporte del producto de datos
+
+La solución integra ingesta, validación, scoring, modelado analítico, catálogo y visualización en un flujo documentado y reproducible.
+
+El principal aporte es transformar los registros históricos de campañas bancarias en información útil para la toma de decisiones comerciales: identificar contactos prioritarios, consultar sus puntuaciones y analizar los resultados mediante Tableau. Además, OpenMetadata permite consultar los activos, sus dependencias y los procesos asociados a su transformación.
+
 ## 8. Cómo ejecutar el pipeline
 
 ### 8.1. Ejecución del proceso en Talend
@@ -416,3 +447,19 @@ SELECT * FROM stg_bank_NOTOK_g3;
 | Ximena Paguay   | Data Steward                             | Define las reglas de calidad (completitud, unicidad, rango, formato), documenta el linaje en el catálogo y certifica que los datos cumplen el umbral de calidad acordado. |
 
 ## 10. Próximos pasos
+
+Aunque la solución implementada permite generar puntuaciones de propensión y priorizar contactos, existen oportunidades para fortalecer su aplicación en un entorno bancario real:
+
+1. **Mejorar el desempeño predictivo:** experimentar con nuevos algoritmos, optimización de hiperparámetros y estrategias de balanceo de clases, buscando incrementar el F1-score sin incorporar variables que generen fuga de información.
+
+2. **Validar el modelo con campañas recientes:** evaluar el comportamiento del scoring utilizando datos de nuevas campañas, para comprobar si mantiene su capacidad de identificar contactos con mayor propensión de suscripción.
+
+3. **Incorporar seguimiento de resultados comerciales:** comparar las predicciones con las suscripciones efectivamente obtenidas y medir indicadores como tasa de conversión, precisión de la priorización y Lift por decil.
+
+4. **Fortalecer el monitoreo de calidad:** mantener el historial de ejecuciones de las reglas DQ, revisar los registros rechazados y establecer procedimientos de remediación para las inconsistencias identificadas.
+
+5. **Ampliar el gobierno y la trazabilidad:** mantener actualizado el catálogo de OpenMetadata, documentar los cambios en los activos y procesos, y revisar periódicamente las relaciones de linaje y las responsabilidades asignadas.
+
+6. **Evolucionar el dashboard comercial:** incorporar filtros y comparaciones por perfil de cliente, campaña y decil de propensión, además de facilitar la consulta y exportación de las listas de contactos prioritarios.
+
+A futuro, estas mejoras permitirían evolucionar el producto desde un prototipo de priorización basado en datos históricos hacia una herramienta de apoyo continuo para la planificación y evaluación de campañas bancarias.
