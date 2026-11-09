@@ -114,6 +114,132 @@ ORDER BY regla;
 
 ## 5. Linaje y catálogo
 
+### 5.1. Catálogo de datos en OpenMetadata
+
+Se utilizó **OpenMetadata 1.12.6** para centralizar los metadatos, documentar los activos y registrar sus relaciones de linaje. Esta herramienta constituye la capa de **catálogo y gobierno de datos** del proyecto, permitiendo conocer el origen, las dependencias y los responsables de la información.
+
+Se configuró el dominio **Marketing Bancario** y se registró el producto de datos **Sistema de Priorización de Contactos Bancarios**, con el identificador `Priorizacion_Contactos_Bancarios_G3`.
+
+El producto reúne **9 activos técnicos principales**:
+
+| Tipo | Activos |
+|---|---|
+| Tablas de SingleStore | `raw_bank_g3`, `stg_bank_OK_g3`, `stg_bank_NOTOK_g3`, `stg_bank_OK_score_g3`, `mart_dim_client_g3`, `mart_dim_campaign_g3`, `mart_fact_calls_g3` |
+| Modelo de Machine Learning | `bank_marketing_random_forest_g3` |
+| Dashboard de Tableau | `dshboard_g3_backup` |
+
+Adicionalmente, se creó un glosario de negocio con términos como **Campaña**, **Conversión**, **Decil**, **Perfil de cliente** y **Predicción**, para facilitar la interpretación de los datos.
+
+### 5.2. Servicios registrados
+
+Para integrar los metadatos de las diferentes herramientas se configuraron los siguientes servicios:
+
+| Servicio | Nombre en OpenMetadata | Propósito |
+|---|---|---|
+| Base de datos | `SingleStore_BankMarketing` | Catalogar las tablas de la base de datos `DSADEV`. |
+| Pipelines | `talend_studio_bank_g3` | Documentar los procesos de integración y scoring. |
+| Machine Learning | `BankMarketing_ML_G3` | Registrar el modelo Random Forest. |
+| Dashboard | `Tableau_Marketing_Bancario_G3` | Catalogar el dashboard publicado en Tableau. |
+
+La extracción de metadatos de Tableau se realizó mediante un agente de ingesta. El modelo de Machine Learning y las relaciones de linaje adicionales se registraron utilizando scripts de Python y la API REST de OpenMetadata.
+
+### 5.3. Pipelines y transformaciones
+
+Se registraron pipelines para documentar los procesos que intervienen en la transformación de los datos.
+
+| Pipeline | Descripción |
+|---|---|
+| `LOAD_FACT_CALLS_G3` | Integra los registros preparados, los resultados del scoring y las dimensiones para construir la tabla de hechos. |
+| `PYTHON_BANK_SCORING_G3` | Representa el proceso de inferencia que aplica el modelo Random Forest y genera las puntuaciones de propensión. |
+
+Los pipelines permiten asociar las relaciones de linaje con los procesos responsables de transformar la información.
+
+### 5.4. Linaje de datos
+
+El linaje documentado permite rastrear las dependencias entre los activos desde las capas de preparación hasta el consumo en Tableau.
+
+**Etapa 1. Preparación y calidad**
+
+Los datos originales se almacenan en `raw_bank_g3`. Después de aplicar las reglas de calidad, los registros se separan en:
+
+- `stg_bank_OK_g3`: registros válidos.
+- `stg_bank_NOTOK_g3`: registros rechazados.
+
+**Etapa 2. Modelo de Machine Learning**
+
+Se registró el modelo `bank_marketing_random_forest_g3` como activo de Machine Learning.
+
+El linaje conecta la tabla `stg_bank_OK_g3` con el modelo y relaciona su salida con `stg_bank_OK_score_g3`, donde se almacenan los resultados del scoring.
+
+También se documentó el pipeline `PYTHON_BANK_SCORING_G3`, correspondiente a la ejecución del proceso predictivo en Python.
+
+**Etapa 3. Construcción de la tabla de hechos**
+
+Se registraron las siguientes dependencias hacia `mart_fact_calls_g3`:
+
+- `stg_bank_OK_g3` → `mart_fact_calls_g3`
+- `stg_bank_OK_score_g3` → `mart_fact_calls_g3`
+- `mart_dim_client_g3` → `mart_fact_calls_g3`
+- `mart_dim_campaign_g3` → `mart_fact_calls_g3`
+
+Estas relaciones se asociaron al pipeline `LOAD_FACT_CALLS_G3`.
+
+**Etapa 4. Visualización en Tableau**
+
+Finalmente, se registró la conexión:
+
+`mart_fact_calls_g3` → `dshboard_g3_backup`
+
+Esta relación permite identificar la tabla de SingleStore que alimenta el dashboard de Tableau y consultar sus dependencias desde OpenMetadata.
+
+### 5.5. Registro del linaje mediante Python
+
+Para registrar las relaciones que no se detectaron automáticamente, se desarrollaron scripts de Python utilizando la biblioteca `requests` y la API REST de OpenMetadata.
+
+El procedimiento fue el siguiente:
+
+1. Autenticación mediante un token configurado en la variable de entorno `OM_TOKEN`.
+2. Consulta de los identificadores de tablas, pipelines, modelo y dashboard.
+3. Registro de las relaciones fuente-destino mediante el endpoint `PUT /api/v1/lineage`.
+4. Verificación de las respuestas de la API.
+5. Validación visual de las conexiones en la pestaña **Linaje** de OpenMetadata.
+
+De esta forma, se documentaron las dependencias sin modificar los datos originales ni los resultados del modelo.
+
+### 5.6. Gobierno y responsabilidades
+
+Se creó el equipo **Bank Marketing - Grupo 3**, asociado al dominio Marketing Bancario.
+
+El equipo permite organizar a los integrantes del proyecto y establecer responsabilidades sobre los activos catalogados.
+
+Se registró el rol **Data Steward** para apoyar las actividades de documentación, mantenimiento del catálogo y seguimiento de la calidad de datos.
+
+La asignación de equipos y propietarios complementa el linaje, ya que facilita identificar quién es responsable de atender incidencias o revisar cambios en los activos.
+
+### 5.7. Validación y resultados
+
+Se verificó la implementación desde las vistas de catálogo y linaje de OpenMetadata.
+
+Los principales resultados fueron:
+
+- **9 activos técnicos principales** incorporados al producto de datos.
+- Dominio y producto de datos registrados.
+- Glosario de negocio documentado.
+- Pipelines de transformación y scoring registrados.
+- Modelo Random Forest catalogado y conectado mediante linaje.
+- Tabla de hechos conectada con el dashboard de Tableau.
+- Relaciones fuente-destino verificadas visualmente.
+
+La implementación cumple el criterio de **linaje en catálogo**, al contar con datasets de entrada documentados, pipelines registrados con sus transformaciones y más de tres activos conectados.
+
+Además, el linaje facilita el **análisis de impacto**, permitiendo identificar qué activos podrían verse afectados por cambios en una tabla o proceso
+
+**Evidencia. Linaje hasta Tableau**
+
+![Linaje del modelo de Machine Learning](docs/imagenes/om_linaje_ml.png)
+
+
+
 ## 6. Modelo de scoring y KPI
 
 ### Modelo predictivo de propensión bancaria – Random Forest
