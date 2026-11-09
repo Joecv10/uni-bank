@@ -15,7 +15,7 @@ Esta decisión tiene dos consecuencias: el archivo no incluye balance, por lo qu
 
 La solución sigue la arquitectura lógica de un _Modern Data Warehouse_ (Microsoft, _DataOps Playbook_): los datos pasan por las etapas **Ingest → Transform → Model → Serve**, sobre una capa de **Storage** común y bajo una **orquestación** central.
 
-![Arquitectura de la solución](docs/imagenes/arquitectura.png)
+![Arquitectura de la solución](docs/imagenes/arquitectura.jpeg)
 
 | Etapa            | Tecnología                                 | Qué hace                                                                                                      | Resultado                                                                                     |
 | ---------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
