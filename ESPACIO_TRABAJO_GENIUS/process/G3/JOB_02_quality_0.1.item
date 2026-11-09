@@ -128,7 +128,7 @@
     <elementParameter field="TEXT" name="FOOTER_CODE" value="" show="false"/>
     <elementParameter field="TEXT" name="FOOTER_IMPORT" value="" show="false"/>
   </parameters>
-  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="160" posY="80">
+  <node componentName="tMysqlInput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="280" posY="80">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBInput_2" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tMysqlInput" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
@@ -240,7 +240,7 @@
       <column comment="" key="false" length="60" name="load_source" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="280" posY="80">
+  <node componentName="tUniqRow" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="400" posY="80">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tUniqRow_2" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tUniqRow" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.101 (ALPHA)" show="false"/>
@@ -405,7 +405,7 @@
       <column comment="" key="false" length="60" name="load_source" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="390" posY="95">
+  <node componentName="tMap" componentVersion="2.1" offsetLabelX="0" offsetLabelY="0" posX="510" posY="95">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tMap_2" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tMap" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="2.1 (ALPHA)" show="false"/>
@@ -476,11 +476,15 @@
       <column comment="" defaultValue="" key="false" length="50" name="euribor3m" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
       <column comment="" defaultValue="" key="false" length="50" name="nr_employed" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="y" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="codigo_regla" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="motivo_rechazo" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="60" name="responsable_remediacion" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="60" usefulColumn="true"/>
+      <column comment="" key="false" length="20" name="estado_remediacion" nullable="true" pattern="" precision="-1" sourceType="" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" key="false" length="26" name="load_ts" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="load_source" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <nodeData xsi:type="TalendMapper:MapperData">
-      <uiProperties/>
+      <uiProperties shellMaximized="true"/>
       <varTables sizeState="INTERMEDIATE" name="Var">
         <mapperTableEntries name="r01_completitud" expression="row1.age != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.job != null &amp;&amp; !row1.job.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.marital != null &amp;&amp; !row1.marital.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.education != null &amp;&amp; !row1.education.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.has_default != null &amp;&amp; !row1.has_default.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.housing != null &amp;&amp; !row1.housing.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.loan != null &amp;&amp; !row1.loan.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.contact != null &amp;&amp; !row1.contact.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.month != null &amp;&amp; !row1.month.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.day_of_week != null &amp;&amp; !row1.day_of_week.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.duration != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.campaign != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.pdays != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.previous != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.poutcome != null &amp;&amp; !row1.poutcome.trim().isEmpty()&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.emp_var_rate != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.cons_price_idx != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.cons_conf_idx != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.euribor3m != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.nr_employed != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.y != null &amp;&amp; !row1.y.trim().isEmpty() " type="id_Boolean"/>
         <mapperTableEntries name="r03_edad_valida" expression="row1.age != null&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.age >= 18&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&amp;&amp; row1.age &lt;= 100 " type="id_Boolean"/>
@@ -515,7 +519,7 @@
         <mapperTableEntries name="euribor3m" expression="row1.euribor3m " type="id_Float" nullable="true"/>
         <mapperTableEntries name="nr_employed" expression="row1.nr_employed " type="id_Double" nullable="true"/>
         <mapperTableEntries name="y" expression="row1.y " type="id_String" nullable="true"/>
-        <mapperTableEntries name="load_ts" expression="row1.load_ts " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="load_ts" expression="TalendDate.getCurrentDate() " type="id_Date" nullable="true"/>
         <mapperTableEntries name="load_source" expression="row1.load_source " type="id_String" nullable="true"/>
       </outputTables>
       <outputTables sizeState="INTERMEDIATE" name="out_NOTOK" expressionFilter="!Var.r01_completitud&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r03_edad_valida&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r04_duracion_valida&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r05_campania_valida&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r06_pdays_valido&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r07_objetivo_valido&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r08_mes_valido&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r09_dia_semana_valido&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r10_resultado_anterior_valido&#xA;&#x9;&#x9;&#x9;&#x9;|| !Var.r11_contacto_valido" activateExpressionFilter="true">
@@ -540,7 +544,11 @@
         <mapperTableEntries name="euribor3m" expression="row1.euribor3m " type="id_Float" nullable="true"/>
         <mapperTableEntries name="nr_employed" expression="row1.nr_employed " type="id_Double" nullable="true"/>
         <mapperTableEntries name="y" expression="row1.y " type="id_String" nullable="true"/>
-        <mapperTableEntries name="load_ts" expression="row1.load_ts " type="id_Date" nullable="true"/>
+        <mapperTableEntries name="codigo_regla" expression="!Var.r01_completitud ? &quot;DQ-01&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r03_edad_valida ? &quot;DQ-03&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r04_duracion_valida ? &quot;DQ-04&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r05_campania_valida ? &quot;DQ-05&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r06_pdays_valido ? &quot;DQ-06&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r07_objetivo_valido ? &quot;DQ-07&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r08_mes_valido ? &quot;DQ-08&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r09_dia_semana_valido ? &quot;DQ-09&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r10_resultado_anterior_valido ? &quot;DQ-10&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r11_contacto_valido ? &quot;DQ-11&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&quot;DQ-00&quot; " type="id_String" nullable="true"/>
+        <mapperTableEntries name="motivo_rechazo" expression="!Var.r01_completitud ? &quot;Registro con campos obligatorios incompletos&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r03_edad_valida ? &quot;Edad inferior a 18 o fuera del rango permitido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r04_duracion_valida ? &quot;Duracion no valida&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r05_campania_valida ? &quot;Numero de contactos de campania no valido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r06_pdays_valido ? &quot;Valor de pdays no valido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r07_objetivo_valido ? &quot;Objetivo de suscripcion no valido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r08_mes_valido ? &quot;Mes no valido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r09_dia_semana_valido ? &quot;Dia de semana no valido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r10_resultado_anterior_valido ? &quot;Resultado anterior no valido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;!Var.r11_contacto_valido ? &quot;Tipo de contacto no valido&quot; :&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&quot;Incumplimiento de regla DQ&quot; " type="id_String" nullable="true"/>
+        <mapperTableEntries name="responsable_remediacion" expression="&quot;Data Steward — Grupo 3&quot; " type="id_String" nullable="true"/>
+        <mapperTableEntries name="estado_remediacion" expression="&quot;EN_REVISION&quot;" type="id_String" nullable="true"/>
+        <mapperTableEntries name="load_ts" expression="TalendDate.getCurrentDate() " type="id_Date" nullable="true"/>
         <mapperTableEntries name="load_source" expression="row1.load_source " type="id_String" nullable="true"/>
       </outputTables>
       <inputTables sizeState="INTERMEDIATE" name="row1" matchingMode="UNIQUE_MATCH" lookupMode="LOAD_ONCE">
@@ -570,7 +578,7 @@
       </inputTables>
     </nodeData>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="600" posY="40">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="680" posY="40">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBOutput_3" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tMysqlOutput" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
@@ -784,7 +792,7 @@
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="600" posY="160">
+  <node componentName="tMysqlOutput" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="680" posY="160">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBOutput_4" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tMysqlOutput" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
@@ -926,16 +934,36 @@
       <elementValue elementRef="DELETE_KEY" value="false" id="102"/>
       <elementValue elementRef="UPDATABLE" value="true" id="103"/>
       <elementValue elementRef="INSERTABLE" value="true" id="104"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="load_ts" id="105"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="codigo_regla" id="105"/>
       <elementValue elementRef="UPDATE_KEY" value="false" id="106"/>
       <elementValue elementRef="DELETE_KEY" value="false" id="107"/>
       <elementValue elementRef="UPDATABLE" value="true" id="108"/>
       <elementValue elementRef="INSERTABLE" value="true" id="109"/>
-      <elementValue elementRef="SCHEMA_COLUMN" value="load_source" id="110"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="motivo_rechazo" id="110"/>
       <elementValue elementRef="UPDATE_KEY" value="false" id="111"/>
       <elementValue elementRef="DELETE_KEY" value="false" id="112"/>
       <elementValue elementRef="UPDATABLE" value="true" id="113"/>
       <elementValue elementRef="INSERTABLE" value="true" id="114"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="responsable_remediacion" id="115"/>
+      <elementValue elementRef="UPDATE_KEY" value="false" id="116"/>
+      <elementValue elementRef="DELETE_KEY" value="false" id="117"/>
+      <elementValue elementRef="UPDATABLE" value="true" id="118"/>
+      <elementValue elementRef="INSERTABLE" value="true" id="119"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="estado_remediacion" id="120"/>
+      <elementValue elementRef="UPDATE_KEY" value="false" id="121"/>
+      <elementValue elementRef="DELETE_KEY" value="false" id="122"/>
+      <elementValue elementRef="UPDATABLE" value="true" id="123"/>
+      <elementValue elementRef="INSERTABLE" value="true" id="124"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="load_ts" id="125"/>
+      <elementValue elementRef="UPDATE_KEY" value="false" id="126"/>
+      <elementValue elementRef="DELETE_KEY" value="false" id="127"/>
+      <elementValue elementRef="UPDATABLE" value="true" id="128"/>
+      <elementValue elementRef="INSERTABLE" value="true" id="129"/>
+      <elementValue elementRef="SCHEMA_COLUMN" value="load_source" id="130"/>
+      <elementValue elementRef="UPDATE_KEY" value="false" id="131"/>
+      <elementValue elementRef="DELETE_KEY" value="false" id="132"/>
+      <elementValue elementRef="UPDATABLE" value="true" id="133"/>
+      <elementValue elementRef="INSERTABLE" value="true" id="134"/>
     </elementParameter>
     <elementParameter field="CHECK" name="USE_HINT_OPTIONS" value="false"/>
     <elementParameter field="TABLE" name="HINT_OPTIONS" show="false"/>
@@ -946,7 +974,7 @@
     <elementParameter field="TEXT" name="LABEL" value="tDBO_stg_bank_NOTOK_g3"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
     <metadata connector="FLOW" name="tDBOutput_4">
-      <column comment="" defaultValue="" key="false" length="3" name="age" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="3" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="age" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="13" name="job" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="marital" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="education" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -956,22 +984,26 @@
       <column comment="" key="false" length="20" name="contact" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="month" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="day_of_week" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="4" name="duration" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="4" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="campaign" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="3" name="pdays" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="3" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="previous" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="duration" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="campaign" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="pdays" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="previous" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="poutcome" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="emp_var_rate" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="cons_price_idx" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="cons_conf_idx" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="euribor3m" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="12" name="nr_employed" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="12" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="emp_var_rate" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="cons_price_idx" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="cons_conf_idx" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="euribor3m" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="nr_employed" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="y" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="codigo_regla" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="motivo_rechazo" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="60" name="responsable_remediacion" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="60" usefulColumn="true"/>
+      <column comment="" key="false" length="20" name="estado_remediacion" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" key="false" length="26" name="load_ts" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="load_source" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
     <metadata connector="REJECT" name="REJECT">
-      <column comment="" defaultValue="" key="false" length="3" name="age" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="3" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="age" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="13" name="job" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="8" name="marital" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="19" name="education" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
@@ -981,24 +1013,28 @@
       <column comment="" key="false" length="20" name="contact" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="month" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="day_of_week" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="4" name="duration" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="4" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="campaign" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="3" name="pdays" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="3" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="1" name="previous" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="duration" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="campaign" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="pdays" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="10" name="previous" nullable="true" pattern="" precision="0" sourceType="INT" type="id_Integer" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="11" name="poutcome" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="emp_var_rate" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="cons_price_idx" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="cons_conf_idx" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="10" name="euribor3m" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="10" usefulColumn="true"/>
-      <column comment="" defaultValue="" key="false" length="12" name="nr_employed" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="12" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="emp_var_rate" nullable="true" pattern="" precision="2" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="cons_price_idx" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="cons_conf_idx" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="euribor3m" nullable="true" pattern="" precision="4" sourceType="FLOAT" type="id_Float" originalLength="-1" usefulColumn="true"/>
+      <column comment="" defaultValue="" key="false" length="50" name="nr_employed" nullable="true" pattern="" precision="4" sourceType="DOUBLE" type="id_Double" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="3" name="y" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
+      <column comment="" key="false" length="15" name="codigo_regla" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="15" usefulColumn="true"/>
+      <column comment="" key="false" length="255" name="motivo_rechazo" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="255" usefulColumn="true"/>
+      <column comment="" key="false" length="60" name="responsable_remediacion" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="60" usefulColumn="true"/>
+      <column comment="" key="false" length="20" name="estado_remediacion" nullable="true" pattern="" precision="-1" sourceType="VARCHAR" type="id_String" originalLength="20" usefulColumn="true"/>
       <column comment="" key="false" length="26" name="load_ts" nullable="true" pattern="&quot;yyyy-MM-dd HH:mm:ss&quot;" precision="0" sourceType="DATETIME" type="id_Date" originalLength="-1" usefulColumn="true"/>
       <column comment="" key="false" length="60" name="load_source" nullable="true" pattern="" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorCode" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
       <column defaultValue="" key="false" length="255" name="errorMessage" nullable="true" precision="0" sourceType="VARCHAR" type="id_String" originalLength="-1" usefulColumn="true"/>
     </metadata>
   </node>
-  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="40" posY="240">
+  <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="40" posY="40">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPrejob_1" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tPrejob" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
@@ -1012,7 +1048,7 @@
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Talend-Studio-20260708_1430-V8.0.1\configuration\lib\java" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="40" posY="80">
+  <node componentName="tPostjob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="160" posY="80">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tPostjob_1" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tPostjob" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
@@ -1026,7 +1062,7 @@
     <elementParameter field="DIRECTORY" name="JAVA_LIBRARY_PATH" value="C:\Talend-Studio-20260708_1430-V8.0.1\configuration\lib\java" show="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="240" posY="280">
+  <node componentName="tMysqlRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="40" posY="200">
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="tDBRow_1" show="false"/>
     <elementParameter field="TEXT" name="COMPONENT_NAME" value="tMysqlRow" show="false"/>
     <elementParameter field="TEXT" name="VERSION" value="0.102 (ALPHA)" show="false"/>
@@ -1051,7 +1087,7 @@
     <elementParameter field="QUERYSTORE_TYPE" name="QUERYSTORE" value="&quot;&quot;"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:REPOSITORY_QUERYSTORE_TYPE" value="" show="false"/>
     <elementParameter field="TECHNICAL" name="QUERYSTORE:QUERYSTORE_TYPE" value="BUILT_IN"/>
-    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;CREATE TABLE IF NOT EXISTS stg_bank_OK_g3 (&#xD;&#xA;    source_call_id BIGINT AUTO_INCREMENT PRIMARY KEY,&#xD;&#xA;    age INT(3) DEFAULT NULL,&#xD;&#xA;    job VARCHAR(13),&#xD;&#xA;    marital VARCHAR(8),&#xD;&#xA;    education VARCHAR(19),&#xD;&#xA;    has_default VARCHAR(7),&#xD;&#xA;    housing VARCHAR(7),&#xD;&#xA;    loan VARCHAR(7),&#xD;&#xA;    contact VARCHAR(20),&#xD;&#xA;    month VARCHAR(3),&#xD;&#xA;    day_of_week VARCHAR(3),&#xD;&#xA;    duration INT(4),&#xD;&#xA;    campaign INT(1),&#xD;&#xA;    pdays INT(3),&#xD;&#xA;    previous INT(1),&#xD;&#xA;    poutcome VARCHAR(11),&#xD;&#xA;    emp_var_rate FLOAT(10,4),&#xD;&#xA;    cons_price_idx FLOAT(10,4),&#xD;&#xA;    cons_conf_idx DOUBLE(10,4),&#xD;&#xA;    euribor3m FLOAT(10,4),&#xD;&#xA;    nr_employed DOUBLE(12,4),&#xD;&#xA;    y VARCHAR(3),&#xD;&#xA;    load_ts DATETIME,&#xD;&#xA;    load_source VARCHAR(60)&#xD;&#xA;);&#xD;&#xA;CREATE TABLE IF NOT EXISTS stg_bank_NOTOK_g3 (&#xD;&#xA;    source_call_id BIGINT AUTO_INCREMENT PRIMARY KEY,&#xD;&#xA;    age INT(3) DEFAULT NULL,&#xD;&#xA;    job VARCHAR(13),&#xD;&#xA;    marital VARCHAR(8),&#xD;&#xA;    education VARCHAR(19),&#xD;&#xA;    has_default VARCHAR(7),&#xD;&#xA;    housing VARCHAR(7),&#xD;&#xA;    loan VARCHAR(7),&#xD;&#xA;    contact VARCHAR(20),&#xD;&#xA;    month VARCHAR(3),&#xD;&#xA;    day_of_week VARCHAR(3),&#xD;&#xA;    duration INT(4),&#xD;&#xA;    campaign INT(1),&#xD;&#xA;    pdays INT(3),&#xD;&#xA;    previous INT(1),&#xD;&#xA;    poutcome VARCHAR(11),&#xD;&#xA;    emp_var_rate FLOAT(10,4),&#xD;&#xA;    cons_price_idx FLOAT(10,4),&#xD;&#xA;    cons_conf_idx DOUBLE(10,4),&#xD;&#xA;    euribor3m FLOAT(10,4),&#xD;&#xA;    nr_employed DOUBLE(12,4),&#xD;&#xA;    y VARCHAR(3),&#xD;&#xA;    load_ts DATETIME,&#xD;&#xA;    load_source VARCHAR(60)&#xD;&#xA;);&quot;"/>
+    <elementParameter field="MEMO_SQL" name="QUERY" value="&quot;CREATE TABLE IF NOT EXISTS stg_bank_OK_g3 (&#xD;&#xA;    source_call_id BIGINT AUTO_INCREMENT PRIMARY KEY,&#xD;&#xA;    age INT(3) DEFAULT NULL,&#xD;&#xA;    job VARCHAR(13),&#xD;&#xA;    marital VARCHAR(8),&#xD;&#xA;    education VARCHAR(19),&#xD;&#xA;    has_default VARCHAR(7),&#xD;&#xA;    housing VARCHAR(7),&#xD;&#xA;    loan VARCHAR(7),&#xD;&#xA;    contact VARCHAR(20),&#xD;&#xA;    month VARCHAR(3),&#xD;&#xA;    day_of_week VARCHAR(3),&#xD;&#xA;    duration INT(4),&#xD;&#xA;    campaign INT(1),&#xD;&#xA;    pdays INT(3),&#xD;&#xA;    previous INT(1),&#xD;&#xA;    poutcome VARCHAR(11),&#xD;&#xA;    emp_var_rate FLOAT(10,4),&#xD;&#xA;    cons_price_idx FLOAT(10,4),&#xD;&#xA;    cons_conf_idx DOUBLE(10,4),&#xD;&#xA;    euribor3m FLOAT(10,4),&#xD;&#xA;    nr_employed DOUBLE(12,4),&#xD;&#xA;    y VARCHAR(3),&#xD;&#xA;    load_ts DATETIME,&#xD;&#xA;    load_source VARCHAR(60)&#xD;&#xA;);&#xD;&#xA;CREATE TABLE IF NOT EXISTS stg_bank_NOTOK_g3 (&#xD;&#xA;    source_call_id BIGINT AUTO_INCREMENT PRIMARY KEY,&#xD;&#xA;    age INT(3) DEFAULT NULL,&#xD;&#xA;    job VARCHAR(13),&#xD;&#xA;    marital VARCHAR(8),&#xD;&#xA;    education VARCHAR(19),&#xD;&#xA;    has_default VARCHAR(7),&#xD;&#xA;    housing VARCHAR(7),&#xD;&#xA;    loan VARCHAR(7),&#xD;&#xA;    contact VARCHAR(20),&#xD;&#xA;    month VARCHAR(3),&#xD;&#xA;    day_of_week VARCHAR(3),&#xD;&#xA;    duration INT(4),&#xD;&#xA;    campaign INT(1),&#xD;&#xA;    pdays INT(3),&#xD;&#xA;    previous INT(1),&#xD;&#xA;    poutcome VARCHAR(11),&#xD;&#xA;    emp_var_rate FLOAT(10,4),&#xD;&#xA;    cons_price_idx FLOAT(10,4),&#xD;&#xA;    cons_conf_idx DOUBLE(10,4),&#xD;&#xA;    euribor3m FLOAT(10,4),&#xD;&#xA;    nr_employed DOUBLE(12,4),&#xD;&#xA;    y VARCHAR(3),&#xD;&#xA;&#x9;codigo_regla VARCHAR(15),&#xD;&#xA;&#x9;motivo_rechazo VARCHAR(255),&#xD;&#xA;&#x9;responsable_remediacion VARCHAR(60),&#xD;&#xA;&#x9;estado_remediacion VARCHAR(20),&#xD;&#xA;    load_ts DATETIME,&#xD;&#xA;    load_source VARCHAR(60)&#xD;&#xA;);&quot;"/>
     <elementParameter field="LABEL" name="NOTE" value="This option only applies when deploying and running in the Talend Runtime"/>
     <elementParameter field="CHECK" name="SPECIFY_DATASOURCE_ALIAS" value="false"/>
     <elementParameter field="TEXT" name="DATASOURCE_ALIAS" value="&quot;&quot;" show="false"/>
@@ -1132,6 +1168,20 @@
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="out_OK" show="false"/>
   </connection>
   <connection connectorName="FLOW" label="out_NOTOK" lineStyle="0" metaname="out_NOTOK" offsetLabelX="0" offsetLabelY="0" outputId="2" source="tMap_2" target="tDBOutput_4">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="estado_remediacion" id="0"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="1"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="2"/>
+      <elementValue elementRef="TRACE_COLUMN" value="motivo_rechazo" id="3"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="4"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="5"/>
+      <elementValue elementRef="TRACE_COLUMN" value="codigo_regla" id="6"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="7"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="8"/>
+      <elementValue elementRef="TRACE_COLUMN" value="responsable_remediacion" id="9"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true" id="10"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value="" id="11"/>
+    </elementParameter>
     <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
     <elementParameter field="TEXT" name="UNIQUE_NAME" value="out_NOTOK" show="false"/>
   </connection>

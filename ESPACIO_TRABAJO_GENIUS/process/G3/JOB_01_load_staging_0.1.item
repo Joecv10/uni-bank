@@ -26,7 +26,7 @@
     <contextParameter comment="" name="DB_PASSWORD" prompt="DB_PASSWORD?" promptNeeded="false" repositoryContextId="_ADy0gNizEfGniKneJaLp0w" type="id_String" value="CambiarEsta#2026" internalId="_nELtgtpAEfGMt8aLYVkPJQ"/>
     <contextParameter comment="" name="DB_PORT" prompt="DB_PORT?" promptNeeded="false" repositoryContextId="_ADy0gNizEfGniKneJaLp0w" type="id_String" value="3306" internalId="_nELtg9pAEfGMt8aLYVkPJQ"/>
     <contextParameter comment="" name="DB_USER" prompt="DB_USER?" promptNeeded="false" repositoryContextId="_ADy0gNizEfGniKneJaLp0w" type="id_String" value="dev_genius" internalId="_nELthNpAEfGMt8aLYVkPJQ"/>
-    <contextParameter comment="" name="FILE_UCI_BANK" prompt="FILE_UCI_BANK?" promptNeeded="false" repositoryContextId="_ADy0gNizEfGniKneJaLp0w" type="id_String" value="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank" internalId="_nELthdpAEfGMt8aLYVkPJQ"/>
+    <contextParameter comment="" name="FILE_UCI_BANK" prompt="FILE_UCI_BANK?" promptNeeded="false" repositoryContextId="_ADy0gNizEfGniKneJaLp0w" type="id_String" value="C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank-additional/bank-additional/bank-additional-full.csv" internalId="_nELthdpAEfGMt8aLYVkPJQ"/>
     <contextParameter comment="" name="LOAD_SOURCE_TAG" prompt="LOAD_SOURCE_TAG?" promptNeeded="false" repositoryContextId="_ADy0gNizEfGniKneJaLp0w" type="id_String" value="G3_UCI_BANK" internalId="_nELthtpAEfGMt8aLYVkPJQ"/>
     <contextParameter comment="" name="PIPELINE_NAME" prompt="PIPELINE_NAME?" promptNeeded="false" repositoryContextId="_ADy0gNizEfGniKneJaLp0w" type="id_String" value="UCI_BANK_PIPELINE" internalId="_nELth9pAEfGMt8aLYVkPJQ"/>
   </context>
@@ -143,7 +143,7 @@
     <elementParameter field="CHECK" name="USE_EXISTING_DYNAMIC" value="false"/>
     <elementParameter field="COMPONENT_LIST" name="DYNAMIC" value="" show="false"/>
     <elementParameter field="LABEL" name="FILENAMETEXT" value="&quot;When the input source is a stream or a zip file,footer and random shouldn't be bigger than 0.&quot;"/>
-    <elementParameter field="FILE" name="FILENAME" value="&quot;C:/Geniuslab/FUENTES/FUENTE_UCI_BANK/bank-additional/bank-additional/bank-additional-full.csv&quot;"/>
+    <elementParameter field="FILE" name="FILENAME" value="context.FILE_UCI_BANK"/>
     <elementParameter field="CHECK" name="CSV_OPTION" value="true"/>
     <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;" show="false"/>
     <elementParameter field="OPENED_LIST" name="CSVROWSEPARATOR" value="&quot;\n&quot;"/>
