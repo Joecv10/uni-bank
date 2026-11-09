@@ -1391,8 +1391,8 @@
           </layout-options>
           <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='36' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97778' id='35' param='vert' type-v2='layout-flow' w='98750' x='625' y='1111'>
+            <zone h='100000' id='38' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97778' id='37' param='vert' type-v2='layout-flow' w='98750' x='625' y='1111'>
                 <zone h='5555' id='7' type-v2='title' w='72891' x='625' y='1111'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1466,7 +1466,7 @@
       <simple-id uuid='{01ED09DE-D99D-41AA-B2C9-7BC453731FF1}' />
     </dashboard>
   </dashboards>
-  <windows source-height='30'>
+  <windows pres-mode='true' source-height='30'>
     <window class='worksheet' name='Rate by decile'>
       <cards>
         <edge name='left'>
