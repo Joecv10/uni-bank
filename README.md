@@ -266,7 +266,7 @@ SELECT * FROM stg_bank_OK_g3;
 
 -- Registros rechazados
 SELECT * FROM stg_bank_NOTOK_g3;
-
+```
 ## 9. Equipo y roles
 
 ## 10. Próximos pasos
