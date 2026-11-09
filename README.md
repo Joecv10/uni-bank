@@ -116,8 +116,110 @@ ORDER BY regla;
 
 ## 6. Modelo de scoring y KPI
 
-- Propensión 0–100, top 20%
-- F1 en el 20% de test (sin usar duration)
+### Modelo predictivo de propensión bancaria – Random Forest
+
+### 1. Descripción del proyecto
+
+Se desarrolló un modelo de aprendizaje automático utilizando el dataset **UCI Bank Marketing**, con el objetivo de predecir la probabilidad de que un contacto bancario contrate un depósito a plazo fijo.
+
+El propósito del modelo es apoyar las decisiones comerciales del banco, identificando los contactos con mayor probabilidad de suscripción y permitiendo priorizar aquellos que podrían generar mejores resultados durante las campañas.
+
+### 2. Preparación y exploración de datos
+
+Se trabajó con **41.171 registros**, analizando la estructura del dataset, los tipos de variables, los valores faltantes y la distribución de la variable objetivo `y`, que representa si el cliente contrató (`yes`) o no contrató (`no`) el depósito.
+
+Se identificó un desbalance de clases, debido a que aproximadamente el 88,74% de los registros corresponde a clientes que no contrataron el producto.
+
+Durante el preprocesamiento se realizaron las siguientes actividades:
+
+- Limpieza y normalización de variables.
+- Tratamiento de valores faltantes y de la variable `pdays`.
+- Aplicación de **One-Hot Encoding** para transformar las variables categóricas en numéricas.
+- Exclusión de `duration`, porque la duración de la llamada únicamente se conoce después del contacto.
+
+Se utilizaron **20 variables predictoras originales**, transformadas en 63 características después de aplicar One-Hot Encoding.
+
+También se realizó un **análisis de correlación** antes y después de la codificación para identificar variables relacionadas con la suscripción. Se experimentó con la selección de las variables más correlacionadas; sin embargo, esta reducción no produjo una mejora consistente del F1-score, por lo que se decidió conservar todas las variables predictoras.
+
+### 3. Experimentación y selección del modelo
+
+Se realizaron diferentes experimentaciones utilizando algoritmos de clasificación, entre ellos:
+
+- HistGradientBoosting.
+- Random Forest normal y con balanceo de clases.
+- Gaussian Naive Bayes.
+- Redes neuronales MLP.
+
+Durante estas pruebas se modificaron hiperparámetros, se evaluaron estrategias de balanceo y se compararon diferentes conjuntos de variables.
+
+En uno de los experimentos, al incluir `duration`, se obtuvo un F1-score aproximado de **0.64**. Sin embargo, se descartó esta configuración como solución operativa porque dicha variable no está disponible antes de realizar la llamada.
+
+Entre las configuraciones evaluadas sin `duration`, se seleccionó **Random Forest con pesos de clase personalizados**, que alcanzó un F1-score de **0.5229**. Este resultado superó ligeramente el F1 de 0.5099 obtenido anteriormente con HistGradientBoosting.
+
+Los ajustes adicionales no generaron mejoras consistentes, por lo que se mantuvo esta configuración como modelo definitivo.
+
+### 4. Entrenamiento y configuración
+
+Se dividieron los datos de manera estratificada:
+
+- **80% para entrenamiento:** 32.936 registros.
+- **20% para prueba:** 8.235 registros.
+
+El modelo Random Forest fue configurado con los siguientes hiperparámetros:
+
+| Hiperparámetro | Valor |
+|---|---|
+| `n_estimators` | 250 |
+| `max_depth` | 20 |
+| `min_samples_split` | 12 |
+| `min_samples_leaf` | 6 |
+| `max_features` | sqrt |
+| `criterion` | gini |
+| `class_weight` | `{0:1, 1:5}` |
+| `random_state` | 42 |
+
+Se asignó un peso cinco veces mayor a los registros de la clase positiva para dar más importancia a los clientes que sí contrataron el depósito.
+
+Adicionalmente, se utilizó validación cruzada estratificada de cinco particiones para seleccionar un **umbral de clasificación de 0.5167**, buscando mejorar el equilibrio entre Precision y Recall.
+
+### 5. Evaluación y resultados
+
+El modelo se evaluó sobre los 8.235 registros reservados para prueba.
+
+| Métrica | Resultado |
+|---|---:|
+| Accuracy | 87.83% |
+| Precision | 46.80% |
+| Recall | 59.22% |
+| **F1-score** | **0.5229** |
+| ROC-AUC | 0.8049 |
+| PR-AUC | 0.4770 |
+
+El **F1-score de 0.5229** representa el equilibrio entre Precision y Recall para identificar correctamente a los clientes que sí contrataron el depósito.
+
+Este resultado significa que el modelo consigue una capacidad moderada de detección de suscriptores, aunque todavía presenta falsos positivos y no identifica todos los casos positivos.
+
+Posteriormente, se generó un **scoring de propensión entre 0 y 100**, utilizado para ordenar los contactos según su probabilidad estimada de suscripción.
+
+Al seleccionar el 20% de contactos con mayor puntuación, se obtuvo un **Lift@20% de 3.31**, lo que indica que este grupo concentró una tasa de suscripción 3.31 veces superior a la tasa general del conjunto de prueba.
+
+### 6. Modelo guardado y predicciones futuras
+
+El modelo entrenado se guardó en `RandomForest_balanceado.joblib`, junto con su preprocesamiento, para reutilizarlo sin necesidad de entrenarlo nuevamente.
+
+A partir de este archivo se pueden generar nuevas probabilidades de suscripción, calcular el scoring y seleccionar los contactos prioritarios utilizando datos con las mismas variables de entrada.
+
+Los resultados también se exportaron a archivos CSV para su visualización en Tableau.
+
+### 7. Conclusión
+
+Se desarrolló un modelo **Random Forest con ponderación personalizada de clases**, seleccionado después de comparar diferentes algoritmos, hiperparámetros y estrategias de preparación de datos.
+
+Aunque se consiguieron resultados superiores al incluir la duración de la llamada, se decidió excluir esta variable para mantener la aplicabilidad del modelo en la priorización de contactos antes de realizar las llamadas.
+
+El modelo definitivo alcanzó un **F1-score de 0.5229**, que refleja un equilibrio moderado entre identificar suscriptores reales y evitar predicciones positivas incorrectas. Este valor no representa el porcentaje de clientes que contratarán, sino una medida del desempeño de clasificación.
+
+El principal aporte del modelo es la generación de un **scoring de propensión de 0 a 100**, que permite priorizar el 20% de contactos con mayor probabilidad estimada de suscripción y apoyar las decisiones comerciales mediante un dashboard en Tableau.
 
 ## 7. Hallazgos
 
