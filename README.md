@@ -13,8 +13,22 @@ Esta decisión tiene dos consecuencias: el archivo no incluye balance, por lo qu
 
 ## 3. Arquitectura
 
-- Talend → SingleStore → Snowflake
-- Modelo dimensional: fact_calls, dim_client, dim_campaign
+La solución sigue la arquitectura lógica de un _Modern Data Warehouse_ (Microsoft, _DataOps Playbook_): los datos pasan por las etapas **Ingest → Transform → Model → Serve**, sobre una capa de **Storage** común y bajo una **orquestación** central.
+
+![Arquitectura de la solución](docs/imagenes/arquitectura.png)
+
+| Etapa            | Tecnología                                 | Qué hace                                                                                                      | Resultado                                                                                     |
+| ---------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| **Fuente**       | CSV (UCI ML Repository)                    | Archivo `bank-additional-full.csv` (41 188 llamadas, 20 variables + `y`)                                      | —                                                                                             |
+| **Ingest**       | Talend Studio                              | Carga el archivo tal como llega, sin modificaciones                                                           | `raw_bank_g3`                                                                                 |
+| **Transform**    | Talend Studio                              | Perfilado, eliminación de duplicados (`tUniqRow`) y evaluación de 11 reglas de calidad (`tMap_DQ`)            | `stg_bank_OK_g3` · `stg_bank_NOTOK_g3`                                                        |
+| **Model**        | Python (scikit-learn) + SQL en SingleStore | Random Forest que asigna un score de propensión 0–100 y marca el `top20`; construcción del modelo dimensional | `stg_bank_OK_score_g3` · `mart_fact_calls_g3` · `mart_dim_client_g3` · `mart_dim_campaign_g3` |
+| **Serve**        | Tableau                                    | Dashboard de priorización de llamadas para el área comercial                                                  | Lista de llamadas top 20 %                                                                    |
+| **Storage**      | SingleStore (`DSADEV`)                     | Almacena todas las capas: raw, staging, mart y calidad                                                        | Tablas `*_g3`, `dq_record_g3`, `dq_scorecard_g3`                                              |
+| **Orquestación** | Talend Studio                              | `JOB_00_orquestador_UCI_BANK` ejecuta las etapas en orden                                                     | —                                                                                             |
+| **Gobierno**     | OpenMetadata                               | Catálogo, glosario de negocio y linaje de los activos (ver §5)                                                | —                                                                                             |
+
+**Fuente del modelo de referencia:** [Exploring the Modern Data Warehouse – Microsoft Learn](https://learn.microsoft.com/en/data-engineering/playbook/solutions/modern-data-warehouse)
 
 ## 4. Calidad de datos
 
@@ -122,11 +136,11 @@ Se configuró el dominio **Marketing Bancario** y se registró el producto de da
 
 El producto reúne **9 activos técnicos principales**:
 
-| Tipo | Activos |
-|---|---|
-| Tablas de SingleStore | `raw_bank_g3`, `stg_bank_OK_g3`, `stg_bank_NOTOK_g3`, `stg_bank_OK_score_g3`, `mart_dim_client_g3`, `mart_dim_campaign_g3`, `mart_fact_calls_g3` |
-| Modelo de Machine Learning | `bank_marketing_random_forest_g3` |
-| Dashboard de Tableau | `dshboard_g3_backup` |
+| Tipo                       | Activos                                                                                                                                          |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Tablas de SingleStore      | `raw_bank_g3`, `stg_bank_OK_g3`, `stg_bank_NOTOK_g3`, `stg_bank_OK_score_g3`, `mart_dim_client_g3`, `mart_dim_campaign_g3`, `mart_fact_calls_g3` |
+| Modelo de Machine Learning | `bank_marketing_random_forest_g3`                                                                                                                |
+| Dashboard de Tableau       | `dshboard_g3_backup`                                                                                                                             |
 
 Adicionalmente, se creó un glosario de negocio con términos como **Campaña**, **Conversión**, **Decil**, **Perfil de cliente** y **Predicción**, para facilitar la interpretación de los datos.
 
@@ -134,12 +148,12 @@ Adicionalmente, se creó un glosario de negocio con términos como **Campaña**,
 
 Para integrar los metadatos de las diferentes herramientas se configuraron los siguientes servicios:
 
-| Servicio | Nombre en OpenMetadata | Propósito |
-|---|---|---|
-| Base de datos | `SingleStore_BankMarketing` | Catalogar las tablas de la base de datos `DSADEV`. |
-| Pipelines | `talend_studio_bank_g3` | Documentar los procesos de integración y scoring. |
-| Machine Learning | `BankMarketing_ML_G3` | Registrar el modelo Random Forest. |
-| Dashboard | `Tableau_Marketing_Bancario_G3` | Catalogar el dashboard publicado en Tableau. |
+| Servicio         | Nombre en OpenMetadata          | Propósito                                          |
+| ---------------- | ------------------------------- | -------------------------------------------------- |
+| Base de datos    | `SingleStore_BankMarketing`     | Catalogar las tablas de la base de datos `DSADEV`. |
+| Pipelines        | `talend_studio_bank_g3`         | Documentar los procesos de integración y scoring.  |
+| Machine Learning | `BankMarketing_ML_G3`           | Registrar el modelo Random Forest.                 |
+| Dashboard        | `Tableau_Marketing_Bancario_G3` | Catalogar el dashboard publicado en Tableau.       |
 
 La extracción de metadatos de Tableau se realizó mediante un agente de ingesta. El modelo de Machine Learning y las relaciones de linaje adicionales se registraron utilizando scripts de Python y la API REST de OpenMetadata.
 
@@ -147,10 +161,10 @@ La extracción de metadatos de Tableau se realizó mediante un agente de ingesta
 
 Se registraron pipelines para documentar los procesos que intervienen en la transformación de los datos.
 
-| Pipeline | Descripción |
-|---|---|
-| `LOAD_FACT_CALLS_G3` | Integra los registros preparados, los resultados del scoring y las dimensiones para construir la tabla de hechos. |
-| `PYTHON_BANK_SCORING_G3` | Representa el proceso de inferencia que aplica el modelo Random Forest y genera las puntuaciones de propensión. |
+| Pipeline                 | Descripción                                                                                                       |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `LOAD_FACT_CALLS_G3`     | Integra los registros preparados, los resultados del scoring y las dimensiones para construir la tabla de hechos. |
+| `PYTHON_BANK_SCORING_G3` | Representa el proceso de inferencia que aplica el modelo Random Forest y genera las puntuaciones de propensión.   |
 
 Los pipelines permiten asociar las relaciones de linaje con los procesos responsables de transformar la información.
 
@@ -238,8 +252,6 @@ Además, el linaje facilita el **análisis de impacto**, permitiendo identificar
 
 ![Linaje del modelo de Machine Learning](docs/imagenes/om_linaje_ml.png)
 
-
-
 ## 6. Modelo de scoring y KPI
 
 ### Modelo predictivo de propensión bancaria – Random Forest
@@ -293,16 +305,16 @@ Se dividieron los datos de manera estratificada:
 
 El modelo Random Forest fue configurado con los siguientes hiperparámetros:
 
-| Hiperparámetro | Valor |
-|---|---|
-| `n_estimators` | 250 |
-| `max_depth` | 20 |
-| `min_samples_split` | 12 |
-| `min_samples_leaf` | 6 |
-| `max_features` | sqrt |
-| `criterion` | gini |
-| `class_weight` | `{0:1, 1:5}` |
-| `random_state` | 42 |
+| Hiperparámetro      | Valor        |
+| ------------------- | ------------ |
+| `n_estimators`      | 250          |
+| `max_depth`         | 20           |
+| `min_samples_split` | 12           |
+| `min_samples_leaf`  | 6            |
+| `max_features`      | sqrt         |
+| `criterion`         | gini         |
+| `class_weight`      | `{0:1, 1:5}` |
+| `random_state`      | 42           |
 
 Se asignó un peso cinco veces mayor a los registros de la clase positiva para dar más importancia a los clientes que sí contrataron el depósito.
 
@@ -312,14 +324,14 @@ Adicionalmente, se utilizó validación cruzada estratificada de cinco particion
 
 El modelo se evaluó sobre los 8.235 registros reservados para prueba.
 
-| Métrica | Resultado |
-|---|---:|
-| Accuracy | 87.83% |
-| Precision | 46.80% |
-| Recall | 59.22% |
+| Métrica      |  Resultado |
+| ------------ | ---------: |
+| Accuracy     |     87.83% |
+| Precision    |     46.80% |
+| Recall       |     59.22% |
 | **F1-score** | **0.5229** |
-| ROC-AUC | 0.8049 |
-| PR-AUC | 0.4770 |
+| ROC-AUC      |     0.8049 |
+| PR-AUC       |     0.4770 |
 
 El **F1-score de 0.5229** representa el equilibrio entre Precision y Recall para identificar correctamente a los clientes que sí contrataron el depósito.
 
@@ -367,13 +379,13 @@ La ejecución del pipeline se realiza desde **Talend Studio 8.0.1**, mediante el
 
 El job orquestador ejecuta las siguientes etapas:
 
-| Etapa | Proceso | Resultado |
-|---|---|---|
-| 1. Carga RAW | Extrae el archivo original y almacena los registros sin aplicar modificaciones. | `raw_bank_g3` |
-| 2. Calidad de datos | Aplica las reglas DQ, elimina duplicados y clasifica los registros según su cumplimiento. | `stg_bank_OK_g3` y `stg_bank_NOTOK_g3` |
-| 3. Scoring | Ejecuta el script Python, carga el modelo previamente entrenado (`.joblib`) y calcula la propensión de suscripción de cada registro válido. | `stg_bank_OK_score_g3` |
-| 4. Modelo dimensional | Construye las dimensiones de clientes y campañas, y la tabla de hechos para el análisis. | `mart_dim_client_g3`, `mart_dim_campaign_g3` y `mart_fact_calls_g3` |
-| 5. Calidad y seguimiento | Almacena los resultados de las reglas por registro y el resumen de calidad de cada ejecución. | `dq_record_g3` y `dq_scorecard_g3` |
+| Etapa                    | Proceso                                                                                                                                     | Resultado                                                           |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| 1. Carga RAW             | Extrae el archivo original y almacena los registros sin aplicar modificaciones.                                                             | `raw_bank_g3`                                                       |
+| 2. Calidad de datos      | Aplica las reglas DQ, elimina duplicados y clasifica los registros según su cumplimiento.                                                   | `stg_bank_OK_g3` y `stg_bank_NOTOK_g3`                              |
+| 3. Scoring               | Ejecuta el script Python, carga el modelo previamente entrenado (`.joblib`) y calcula la propensión de suscripción de cada registro válido. | `stg_bank_OK_score_g3`                                              |
+| 4. Modelo dimensional    | Construye las dimensiones de clientes y campañas, y la tabla de hechos para el análisis.                                                    | `mart_dim_client_g3`, `mart_dim_campaign_g3` y `mart_fact_calls_g3` |
+| 5. Calidad y seguimiento | Almacena los resultados de las reglas por registro y el resumen de calidad de cada ejecución.                                               | `dq_record_g3` y `dq_scorecard_g3`                                  |
 
 El proceso Python utiliza el modelo entrenado y guardado en formato Joblib para generar un score de propensión de 0 a 100, una clasificación predictiva y un indicador `top20`, que identifica al 20 % de registros con mayor puntuación.
 
@@ -393,8 +405,14 @@ SELECT * FROM stg_bank_OK_g3;
 -- Registros rechazados
 SELECT * FROM stg_bank_NOTOK_g3;
 ```
+
 ## 9. Equipo y roles
 
-## 10. Próximos pasos
+| Integrante      | Rol                                      | Responsabilidades (según el kickoff del Datatón)                                                                                                                          |
+| --------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Joe Concha      | Data Analyst                             | Construye el modelo analítico en SingleStore (consultas, vistas), el dashboard o análisis, y define los KPIs para el Demo Day.                                            |
+| Maricris Orozco | Data Engineer (entrenamiento del modelo) | Desarrolla y entrena el modelo de propensión, y genera el scoring 0–100 y la lista de llamadas prioritarias.                                                              |
+| Ariel Navarro   | Data Engineer                            | Construye los jobs de ingesta en Talend Studio, configura los contextos de entorno, aplica las transformaciones `tMap` y asegura el flujo hacia SingleStore.              |
+| Ximena Paguay   | Data Steward                             | Define las reglas de calidad (completitud, unicidad, rango, formato), documenta el linaje en el catálogo y certifica que los datos cumplen el umbral de calidad acordado. |
 
-=======
+## 10. Próximos pasos
