@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ContextType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmi:id="_B_o4oNnQEfGgkOVoniNXdA" confirmationNeeded="false" hide="false" name="Default">
+  <contextParameter xmi:id="_B_o4odnQEfGgkOVoniNXdA" comment="" name="cnx_singlestore_g3_password" prompt="cnx_singlestore_g3_password?" promptNeeded="false" repositoryContextId="" type="id_Password" value="enc:system.encryption.key.v1:R5v4cu0i7eNw1r0lmGEPelNlIVJjQMGKFfLZ3/ajyI4p4O3oohD3Q8HEKsnoHaMf2r6ZbqY="/>
+  <contextParameter xmi:id="_B_o4otnQEfGgkOVoniNXdA" comment="" name="cnx_singlestore_g3_userId" prompt="cnx_singlestore_g3_userId?" promptNeeded="false" repositoryContextId="" type="id_String" value="admin"/>
+  <contextParameter xmi:id="_B_o4o9nQEfGgkOVoniNXdA" comment="" name="cnx_singlestore_g3_jdbcClass" prompt="cnx_singlestore_g3_jdbcClass?" promptNeeded="false" repositoryContextId="" type="id_String" value="org.mariadb.jdbc.Driver"/>
+  <contextParameter xmi:id="_B_o4pNnQEfGgkOVoniNXdA" comment="" name="cnx_singlestore_g3_jdbcUrl" prompt="cnx_singlestore_g3_jdbcUrl?" promptNeeded="false" repositoryContextId="" type="id_String" value="jdbc:mariadb://svc-55cde336-ac25-4fc8-be87-8bb82a160d34-dml.aws-virginia-5.svc.singlestore.com:3306/db_bank_g3_raw"/>
+</talendfile:ContextType>

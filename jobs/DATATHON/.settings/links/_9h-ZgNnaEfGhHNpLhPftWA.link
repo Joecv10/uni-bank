@@ -1,0 +1,20 @@
+{
+  "itemId" : "_9h-ZgNnaEfGhHNpLhPftWA",
+  "contextList" : [ {
+    "contextName" : "Default",
+    "repoId" : "_B_QeINnQEfGgkOVoniNXdA",
+    "parameterList" : [ {
+      "id" : "_B_o4o9nQEfGgkOVoniNXdA",
+      "name" : "cnx_singlestore_g3_jdbcClass"
+    }, {
+      "id" : "_B_o4pNnQEfGgkOVoniNXdA",
+      "name" : "cnx_singlestore_g3_jdbcUrl"
+    }, {
+      "id" : "_B_o4otnQEfGgkOVoniNXdA",
+      "name" : "cnx_singlestore_g3_userId"
+    }, {
+      "id" : "_B_o4odnQEfGgkOVoniNXdA",
+      "name" : "cnx_singlestore_g3_password"
+    } ]
+  } ]
+}
