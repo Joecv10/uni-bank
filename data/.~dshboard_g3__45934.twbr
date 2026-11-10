@@ -914,7 +914,7 @@
             </column-instance>
           </datasource-dependencies>
           <filter class='categorical' column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[Action (Profile value)]'>
-            <groupfilter function='level-members' level='[Calculation_4450063135887368]' user:ui-action-filter='[Action1_769A40E2B6D6494FA0FEC6A4E1113DE1]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+            <groupfilter function='member' level='[Calculation_4450063135887368]' member='&quot;student&quot;' user:ui-action-filter='[Action1_769A40E2B6D6494FA0FEC6A4E1113DE1]' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
           <computed-sort column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[none:source_call_id:ok]' direction='DESC' using='[federated.0dplblo1l59b0k1h9tt770fu0siy].[sum:score:qk]' />
           <filter class='categorical' column='[federated.0dplblo1l59b0k1h9tt770fu0siy].[none:top20:ok]'>
@@ -958,7 +958,7 @@
       <layout-options>
         <title>
           <formatted-text>
-            <run bold='true' fontsize='10'>Si el banco hubiera llamado solo al 20 % con mayor score, habría alcanzado el 76 % de los suscriptores</run>
+            <run bold='true' fontcolor='#666666' fontsize='10'>Si el banco hubiera llamado solo al 20 % con mayor score, habría alcanzado el 76 % de los suscriptores</run>
           </formatted-text>
         </title>
       </layout-options>
@@ -1489,10 +1489,10 @@
               </formatted-text>
             </title>
           </layout-options>
-          <size maxheight='1150' minheight='1150' sizing-mode='vscroll' />
+          <size maxheight='1500' minheight='1500' sizing-mode='vscroll' />
           <zones>
-            <zone h='100000' id='38' type-v2='layout-basic' w='100000' x='0' y='0'>
-              <zone h='97778' id='37' param='vert' type-v2='layout-flow' w='98750' x='625' y='1111'>
+            <zone h='100000' id='62' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='97778' id='61' param='vert' type-v2='layout-flow' w='98750' x='625' y='1111'>
                 <zone h='5555' id='7' type-v2='title' w='72891' x='625' y='1111'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
@@ -1513,7 +1513,7 @@
                   </zone-style>
                 </zone>
                 <zone fixed-size='140' h='20555' id='17' is-fixed='true' name='Headline' w='72891' x='625' y='6666'>
-                  <layout-cache cell-count-w='4' non-cell-size-w='1' type-h='cell' type-w='cell' />
+                  <layout-cache cell-count-w='5' non-cell-size-w='1' type-h='cell' type-w='cell' />
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1522,7 +1522,10 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='71668' id='19' is-fixed='true' name='Rate by decile' w='36433' x='625' y='27221'>
+                <zone forceUpdate='true' h='6111' id='44' type-v2='text' w='14609' x='625' y='27222'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#898989' fontsize='8'>Registros analizados</run>
+                  </formatted-text>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1531,7 +1534,64 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone custom-title='true' h='7779' id='18' mode='compact' param='[Parameters].[Parameter 4450063135358983]' type-v2='paramctrl' w='36458' x='37058' y='27221'>
+                <zone forceUpdate='true' h='6111' id='43' type-v2='text' w='14610' x='15234' y='27222'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#898989' fontsize='8'>20 % + score</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='6111' id='41' type-v2='text' w='14609' x='29844' y='27222'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#898989' fontsize='8'>En el grupo prioritaro</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='298' forceUpdate='true' h='6111' id='42' type-v2='text' w='14531' x='44453' y='27222'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#898989' fontsize='8'>Mayor concentración de suscripciones</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone forceUpdate='true' h='6111' id='40' type-v2='text' w='14532' x='58984' y='27222'>
+                  <formatted-text>
+                    <run fontalignment='1' fontcolor='#898989' fontsize='8'>Desempeño del modelo en datos de prueba</run>
+                  </formatted-text>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='65557' id='19' is-fixed='true' name='Rate by decile' w='36433' x='625' y='33332'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone custom-title='true' h='7113' id='18' mode='compact' param='[Parameters].[Parameter 4450063135358983]' type-v2='paramctrl' w='36458' x='37058' y='33332'>
                   <formatted-text>
                     <run>Perfil</run>
                   </formatted-text>
@@ -1543,7 +1603,7 @@
                     <format attr='padding' value='0' />
                   </zone-style>
                 </zone>
-                <zone fixed-size='280' h='63889' id='13' is-fixed='true' name='Score by profile' w='36458' x='37058' y='35000'>
+                <zone fixed-size='280' h='58444' id='13' is-fixed='true' name='Score by profile' w='36458' x='37058' y='40445'>
                   <zone-style>
                     <format attr='border-color' value='#000000' />
                     <format attr='border-style' value='none' />
@@ -1566,7 +1626,7 @@
       <simple-id uuid='{01ED09DE-D99D-41AA-B2C9-7BC453731FF1}' />
     </dashboard>
   </dashboards>
-  <windows source-height='30'>
+  <windows pres-mode='true' source-height='30'>
     <window class='worksheet' name='Rate by decile'>
       <cards>
         <edge name='left'>
@@ -1718,7 +1778,7 @@
           <zoom type='entire-view' />
         </viewpoint>
       </viewpoints>
-      <active id='17' />
+      <active id='13' />
       <simple-id uuid='{5C17D7D4-FB2D-43DC-9DFD-73F816BC3048}' />
     </window>
   </windows>
